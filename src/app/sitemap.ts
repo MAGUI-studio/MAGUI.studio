@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next"
 
-import { getProjectCaseSlugs } from "@/src/content/projects"
 import { locales } from "@/src/i18n/config"
 import { getPathname } from "@/src/i18n/navigation"
 
@@ -65,21 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   )
 
-  const projectPaths: SitemapRoute[] = getProjectCaseSlugs().flatMap((slug) =>
-    locales.map((locale) => ({
-      changeFrequency: "monthly",
-      path: getPathname({
-        locale,
-        href: {
-          pathname: "/projetos/[slug]",
-          params: { slug },
-        },
-      }),
-      priority: 0.75,
-    }))
-  )
-
-  return [...localizedPaths, ...projectPaths].map((route) => ({
+  return localizedPaths.map((route) => ({
     url: new URL(route.path, siteConfig.url).toString(),
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,

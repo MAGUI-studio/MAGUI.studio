@@ -47,20 +47,10 @@ export const Header = React.memo(function Header(): React.JSX.Element {
   const idT = useTranslations("Index.Ids")
   const dashboardHref = "https://dashboard.magui.studio"
   const [isOpen, setIsOpen] = React.useState(false)
-  const [scrolled, setScrolled] = React.useState(false)
   const menuRef = React.useRef<HTMLDivElement>(null)
   const toggleButtonRef = React.useRef<HTMLButtonElement>(null)
   const lastFocusedElementRef = React.useRef<HTMLElement | null>(null)
   const previousBodyOverflowRef = React.useRef("")
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   React.useEffect(() => {
     if (isOpen) {
@@ -136,7 +126,12 @@ export const Header = React.memo(function Header(): React.JSX.Element {
   const navLinks = React.useMemo(
     () => [
       { href: "/", label: t("home") },
-      { href: `/#${idT("portfolio")}`, label: t("portfolio") },
+      {
+        href: siteConfig.portfolio.url,
+        label: t("portfolio"),
+        rel: "noreferrer",
+        target: "_blank",
+      },
       { href: `/#${idT("services")}`, label: t("services") },
       { href: siteConfig.method.path, label: t("method") },
       { href: siteConfig.studio.path, label: t("about") },
@@ -176,11 +171,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
     <>
       <header
         className={cn(
-          "fixed top-0 left-1/2 -translate-x-1/2 flex h-24 w-full max-w-440 items-center justify-between px-6 transition-all duration-700 md:px-10 2xl:px-20 bg-white! dark:bg-[#161616]!",
-          isOpen ? "z-220" : "z-100",
-          scrolled || isOpen
-            ? "bg-background/80 backdrop-blur-xl"
-            : " bg-transparent backdrop-blur-none"
+          "relative flex h-24 w-full max-w-440 items-center justify-between bg-white! px-6 transition-colors duration-300 dark:bg-[#161616]! md:px-10 2xl:px-20",
+          isOpen ? "z-220 backdrop-blur-xl" : "z-100"
         )}
       >
         <div className="relative z-220 flex min-w-0 shrink items-center gap-6 2xl:gap-8">
@@ -219,6 +211,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
                     key={link.href}
                     href={link.href}
                     label={link.label}
+                    rel={link.rel}
+                    target={link.target}
                     className="whitespace-nowrap"
                   />
                 ))}
@@ -322,6 +316,8 @@ export const Header = React.memo(function Header(): React.JSX.Element {
                       href={link.href}
                       label={link.label}
                       variant="mobile"
+                      rel={link.rel}
+                      target={link.target}
                       onClick={() => setIsOpen(false)}
                     />
                   </m.div>

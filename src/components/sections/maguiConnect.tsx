@@ -40,7 +40,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
       className="py-24 md:py-32 lg:py-40"
       withContainer={true}
     >
-      <div className="grid gap-px border border-foreground/8 bg-foreground/8 xl:grid-cols-[1.05fr_0.95fr]">
+      <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
         <article className="relative overflow-hidden bg-background p-8 md:p-10 lg:p-14">
           <div className="space-y-10">
             <div className="flex items-center gap-4">
@@ -72,7 +72,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
                 return (
                   <div
                     key={feature.title}
-                    className="flex min-h-18 items-center gap-4 rounded-2xl border border-foreground/8 bg-muted/20 px-4 py-4"
+                    className="flex min-h-18 items-center gap-4 rounded-2xl bg-muted/20 px-4 py-4"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white">
                       <Icon size={24} weight="bold" />
@@ -85,7 +85,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
               })}
             </div>
 
-            <div className="grid gap-4 border-t border-foreground/8 pt-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div className="grid gap-4 pt-8 md:grid-cols-[1fr_auto] md:items-end">
               <div className="space-y-3">
                 <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
                   {t("offer_eyebrow")}
@@ -114,7 +114,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
         </article>
 
         <article className="relative overflow-hidden bg-background p-3 md:p-4">
-          <div className="relative h-full min-h-180 md:min-h-120 overflow-hidden rounded-[28px] border border-foreground/8 bg-background">
+          <div className="relative h-full min-h-180 overflow-hidden rounded-[28px] bg-background md:min-h-120">
             <Image
               src="/images/MAGUIConnect.png"
               alt={t("image_alt")}
@@ -126,7 +126,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
             <div className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-black via-black/72 to-transparent" />
 
             <div className="relative flex h-full flex-col justify-between p-6 md:p-8 lg:p-10">
-              <div className="max-w-xs rounded-2xl border border-white/12 bg-black/28 p-4 text-white backdrop-blur-sm">
+              <div className="max-w-xs rounded-2xl bg-black/28 p-4 text-white backdrop-blur-sm">
                 <p className="text-[10px] font-black uppercase tracking-[0.34em] text-white/72">
                   {t("card_eyebrow")}
                 </p>

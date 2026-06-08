@@ -25,7 +25,12 @@ export async function Footer(): Promise<React.JSX.Element> {
   const navigationLinks = [
     { href: siteConfig.studio.path, label: navT("about") },
     { href: siteConfig.method.path, label: navT("method") },
-    { href: "/#portfolio", label: navT("portfolio") },
+    {
+      href: siteConfig.portfolio.url,
+      label: navT("portfolio"),
+      rel: "noreferrer",
+      target: "_blank",
+    },
     { href: siteConfig.contact.path, label: navT("contact") },
   ]
 
@@ -77,6 +82,8 @@ export async function Footer(): Promise<React.JSX.Element> {
                     <NavLink
                       href={link.href}
                       label={link.label}
+                      rel={link.rel}
+                      target={link.target}
                       variant="footer"
                     />
                   </li>

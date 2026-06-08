@@ -81,7 +81,7 @@ export default async function StudioPage({
     <div className="relative min-h-svh w-full overflow-x-hidden bg-background font-sans text-foreground selection:bg-brand-primary/30 selection:text-brand-primary">
       <Header />
 
-      <main className="pt-24 md:pt-32">
+      <main>
         <Manifesto />
         <Section className="py-14 md:py-20 lg:py-24" withContainer>
           <div className="space-y-10 md:space-y-12">

@@ -24,10 +24,6 @@ const CurvedLoop = dynamic(() =>
   )
 )
 
-const Showcase = dynamic(() =>
-  import("@/src/components/sections/showcase").then((module) => module.Showcase)
-)
-
 interface HomePageProps {
   params: Promise<{
     locale: string
@@ -103,10 +99,9 @@ export default async function Page({
       />
       <ScrollSpy />
       <Header />
-      <main className="pt-24">
+      <main>
         <Hero />
         <Value />
-        <Showcase />
         <Services />
         <MaguiConnect />
 

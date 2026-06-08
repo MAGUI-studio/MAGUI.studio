@@ -171,6 +171,12 @@
       "title_1": "Available",
       "title_2": "Services",
       "selection": "Selection",
+      "portfolio": {
+        "eyebrow": "Selected projects",
+        "title": "Projects that show the work in practice.",
+        "description": "The portfolio gathers digital experiences created for different contexts, goals, and levels of brand presence.",
+        "cta": "Open portfolio"
+      },
       "landing": {
         "title": "Landing Pages",
         "label": "Conscious Conversion",

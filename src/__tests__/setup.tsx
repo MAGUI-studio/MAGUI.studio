@@ -263,8 +263,6 @@ vi.mock("@/src/i18n/navigation", () => ({
         }
   }) => {
     const pathname = typeof href === "string" ? href : href.pathname
-    const slug = typeof href === "string" ? "" : (href.params?.slug ?? "")
-
     if (pathname === "/contato") {
       return locale === "en" ? "/contact" : "/contato"
     }
@@ -275,10 +273,6 @@ vi.mock("@/src/i18n/navigation", () => ({
 
     if (pathname === "/estudio") {
       return locale === "en" ? "/studio" : "/estudio"
-    }
-
-    if (pathname === "/projetos/[slug]") {
-      return locale === "en" ? `/projects/${slug}` : `/projetos/${slug}`
     }
 
     return pathname

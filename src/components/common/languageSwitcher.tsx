@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import { useLocale, useTranslations } from "next-intl"
-import { useParams } from "next/navigation"
 
 import { locales } from "@/src/i18n/config"
 import { usePathname, useRouter } from "@/src/i18n/navigation"
@@ -24,10 +23,6 @@ const countryCodes: Record<string, string> = {
   pt: "BR",
 }
 
-interface LocaleRouteParams {
-  [key: string]: string | Array<string>
-}
-
 function toFlagEmoji(countryCode: string): string {
   return Array.from(countryCode.toUpperCase())
     .map((character) => String.fromCodePoint(127397 + character.charCodeAt(0)))
@@ -39,41 +34,18 @@ export function LanguageSwitcher(): React.JSX.Element {
   const currentLocale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-  const params = useParams<LocaleRouteParams>()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const handleLocaleChange = React.useCallback(
     (newLocale: string): void => {
       if (newLocale === currentLocale) return
       Cookies.set("NEXT_LOCALE", newLocale, { expires: 365 })
 
-      if (pathname === "/projetos/[slug]") {
-        const slugParam = params.slug
-        const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam
-
-        if (slug) {
-          router.replace({ pathname, params: { slug } }, { locale: newLocale })
-        }
-
-        return
-      }
-
-      router.replace(pathname as Exclude<typeof pathname, "/projetos/[slug]">, {
+      router.replace(pathname, {
         locale: newLocale,
       })
     },
-    [currentLocale, params, pathname, router]
+    [currentLocale, pathname, router]
   )
-
-  if (!mounted) {
-    return (
-      <div className="h-9 w-24 animate-pulse rounded-full border border-border/50 bg-muted/20" />
-    )
-  }
 
   const currentFlag = toFlagEmoji(countryCodes[currentLocale] ?? "US")
 

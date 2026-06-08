@@ -171,6 +171,12 @@
       "title_1": "Serviços",
       "title_2": "Disponíveis",
       "selection": "Seleção",
+      "portfolio": {
+        "eyebrow": "Projetos selecionados",
+        "title": "Projetos que mostram a entrega na prática.",
+        "description": "O portfólio reúne experiências digitais criadas para diferentes contextos, objetivos e níveis de presença de marca.",
+        "cta": "Acessar portfólio"
+      },
       "landing": {
         "title": "Landing Pages",
         "label": "Conversão Consciente",

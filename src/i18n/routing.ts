@@ -16,14 +16,6 @@ export const pathnames = {
     pt: "/estudio",
     en: "/studio",
   },
-  "/projetos": {
-    pt: "/projetos",
-    en: "/projects",
-  },
-  "/projetos/[slug]": {
-    pt: "/projetos/[slug]",
-    en: "/projects/[slug]",
-  },
 } as const
 
 export const routing = defineRouting({

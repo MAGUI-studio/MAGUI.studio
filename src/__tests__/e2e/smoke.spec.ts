@@ -57,39 +57,8 @@ test.describe("Critical flows", () => {
     const mobileDialog = page.getByRole("dialog")
     await expect(mobileDialog).toBeVisible()
     await expect(
-      mobileDialog.locator('a[href="/#portfolio"]').first()
-    ).toBeVisible()
-  })
-
-  test("navigates between showcase projects", async ({ page }) => {
-    await setLocaleCookie(page, "pt")
-    await page.goto("/")
-    await acceptCookiesIfVisible(page)
-
-    await expect(
-      page.locator(`a[href="${"/projetos/apareca-e-venda"}"]`).first()
-    ).toBeVisible()
-
-    await page.locator('section#portfolio button[type="button"]').last().click()
-
-    await expect(
-      page.locator(`a[href="${"/projetos/powervet"}"]`).first()
-    ).toBeVisible()
-  })
-
-  test("opens an individual project page from the portfolio", async ({
-    page,
-  }) => {
-    await setLocaleCookie(page, "pt")
-    await page.goto("/projetos/apareca-e-venda")
-    await acceptCookiesIfVisible(page)
-
-    await expect(
-      page.getByRole("heading", { name: /Apareça e venda/i })
-    ).toBeVisible()
-    await expect(
-      page.getByRole("link", { name: /Ver projeto ao vivo/i })
-    ).toBeVisible()
+      mobileDialog.locator('a[href="https://portfolio.magui.studio"]').first()
+    ).toHaveAttribute("target", "_blank")
   })
 
   test("submits the contact inquiry successfully", async ({ page }) => {
@@ -134,13 +103,5 @@ test.describe("Critical flows", () => {
 
     await page.goto("/studio")
     await expect(page).toHaveURL(/\/studio$/)
-  })
-
-  test("opens localized english project routes", async ({ page }) => {
-    await setLocaleCookie(page, "en")
-    await page.goto("/projects/apareca-e-venda")
-    await acceptCookiesIfVisible(page)
-
-    await expect(page).toHaveURL(/\/projects\/apareca-e-venda$/)
   })
 })

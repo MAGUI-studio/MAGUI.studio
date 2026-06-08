@@ -2,7 +2,6 @@ import * as React from "react"
 
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
-import Link from "next/link"
 
 import { Link as LocalizedLink } from "@/src/i18n/navigation"
 
@@ -68,13 +67,14 @@ export async function Hero(): Promise<React.JSX.Element> {
             </LocalizedLink>
           </Button>
 
-          <Link
-            href="/#portfolio"
-            prefetch={false}
+          <a
+            href={siteConfig.portfolio.url}
+            target="_blank"
+            rel="noreferrer"
             className="group inline-flex h-14 items-center justify-center rounded-full border border-foreground/15 px-8 text-xs font-black uppercase tracking-[0.18em] text-foreground transition-all hover:border-brand-primary hover:text-brand-primary"
           >
             {t("secondary_cta")}
-          </Link>
+          </a>
         </div>
       </div>
     </Section>

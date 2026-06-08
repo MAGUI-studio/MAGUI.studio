@@ -43,8 +43,8 @@ export const siteConfig = {
     email: "contato@magui.studio",
     path: "/contato" as const,
   },
-  projects: {
-    path: "/#portfolio" as const,
+  portfolio: {
+    url: "https://portfolio.magui.studio" as const,
   },
   method: {
     path: "/metodo" as const,

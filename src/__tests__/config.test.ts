@@ -27,7 +27,7 @@ describe("siteConfig", () => {
     expect(siteConfig.contact.path).toBe("/contato")
   })
 
-  it("should expose the portfolio route", () => {
-    expect(siteConfig.projects.path).toBe("/#portfolio")
+  it("should expose the portfolio URL", () => {
+    expect(siteConfig.portfolio.url).toBe("https://portfolio.magui.studio")
   })
 })

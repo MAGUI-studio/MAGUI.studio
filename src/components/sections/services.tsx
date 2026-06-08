@@ -10,6 +10,8 @@ import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 import { cn } from "@/src/lib/utils/utils"
 
+import { siteConfig } from "@/src/config/site"
+
 interface ServiceShowcaseItem {
   id: string
   inquiryValue: "institutional" | "landing" | "sales"
@@ -150,6 +152,35 @@ export async function Services(): Promise<React.JSX.Element> {
             </article>
           ))}
         </div>
+
+        <aside className="grid gap-8 bg-muted/20 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8 lg:p-10">
+          <div className="max-w-3xl space-y-4">
+            <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
+              {t("portfolio.eyebrow")}
+            </span>
+            <h3 className="font-heading text-3xl font-black uppercase leading-[0.94] tracking-[-0.05em] text-foreground md:text-5xl">
+              {t("portfolio.title")}
+            </h3>
+            <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
+              {t("portfolio.description")}
+            </p>
+          </div>
+
+          <a
+            href={siteConfig.portfolio.url}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-primary px-6 text-xs font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-brand-primary/12 transition-all duration-300 hover:scale-[1.02] hover:bg-brand-primary/92 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          >
+            {t("portfolio.cta")}
+            <ArrowUpRightIcon
+              size={18}
+              weight="bold"
+              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+              aria-hidden="true"
+            />
+          </a>
+        </aside>
       </div>
     </Section>
   )
