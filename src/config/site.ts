@@ -35,6 +35,7 @@ export const siteConfig = {
     },
   ],
   sameAs: [
+    "https://portfolio.magui.studio",
     "https://www.instagram.com/_magui.studio",
     "https://www.linkedin.com/company/magui-studio",
     "https://x.com/magui_studio",
