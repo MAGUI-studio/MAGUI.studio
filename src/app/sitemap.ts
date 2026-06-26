@@ -15,6 +15,9 @@ interface SitemapRoute {
   changeFrequency: "weekly" | "monthly"
   path: string
   priority: number
+  alternates?: {
+    languages: Record<string, string>
+  }
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,23 +47,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localizedPaths: SitemapRoute[] = localizedRouteDefinitions.flatMap(
     (route): SitemapRoute[] => {
       if (route.href === "/") {
+        const languages: Record<string, string> = {}
+        for (const locale of locales) {
+          languages[locale] = new URL("/", siteConfig.url).toString()
+        }
+
         return [
           {
             changeFrequency: route.changeFrequency,
             path: route.href,
             priority: route.priority,
+            alternates: {
+              languages,
+            },
           },
         ]
       }
 
-      return locales.map((locale) => ({
-        changeFrequency: route.changeFrequency,
-        path: getPathname({
-          locale,
-          href: route.href,
-        }),
-        priority: route.priority,
-      }))
+      return locales.map((locale) => {
+        const languages: Record<string, string> = {}
+        for (const l of locales) {
+          languages[l] = new URL(
+            getPathname({
+              locale: l,
+              href: route.href,
+            }),
+            siteConfig.url
+          ).toString()
+        }
+
+        return {
+          changeFrequency: route.changeFrequency,
+          path: getPathname({
+            locale,
+            href: route.href,
+          }),
+          priority: route.priority,
+          alternates: {
+            languages,
+          },
+        }
+      })
     }
   )
 
@@ -69,5 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
+    alternates: route.alternates,
   }))
 }
