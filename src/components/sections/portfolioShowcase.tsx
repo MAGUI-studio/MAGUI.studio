@@ -49,7 +49,7 @@ export async function PortfolioShowcase(): Promise<React.JSX.Element> {
           {featuredProjects.map((project) => (
             <Link
               key={project.slug}
-              href={`https://portfolio.magui.studio/${project.slug}`}
+              href={`https://portfolio.magui.studio/projetos/${project.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col space-y-5 rounded-2xl border border-border/60 bg-card/20 p-4 transition-all duration-300 hover:border-brand-primary/40 hover:bg-card/40 backdrop-blur-sm"
