@@ -216,3 +216,31 @@ export function TargetIcon(props: ServerIconProps): React.JSX.Element {
     </BaseIcon>
   )
 }
+
+export function CheckIcon(props: ServerIconProps): React.JSX.Element {
+  return (
+    <BaseIcon {...props}>
+      <path
+        d="M20 6L9 17L4 12"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </BaseIcon>
+  )
+}
+
+export function ArrowRightIcon(props: ServerIconProps): React.JSX.Element {
+  return (
+    <BaseIcon {...props}>
+      <path
+        d="M5 12H19M19 12L12 5M19 12L12 19"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </BaseIcon>
+  )
+}
