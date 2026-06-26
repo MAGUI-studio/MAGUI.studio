@@ -147,6 +147,27 @@
       "title_primary": "Projetos",
       "title_accent": "em destaque",
       "description": "Projetos pensados para traduzir posicionamento em presença digital, com direção visual forte, clareza estratégica e execução de alto nível.",
+      "view_more": "Ver mais projetos",
+      "projects": {
+        "cazetv": {
+          "description": "Canal de transmissão esportiva e entretenimento digital."
+        },
+        "powervet": {
+          "description": "Clínica veterinária premium especializada em animais silvestres e exóticos."
+        },
+        "arco-odontologia": {
+          "description": "Clínica odontológica moderna com diagnóstico digital e cuidado humano."
+        },
+        "flow": {
+          "description": "Aquarismo marinho premium com equipamentos e peixes ornamentais."
+        },
+        "haven": {
+          "description": "Espaço especializado em cortes de cabelo para pessoas neurodivergentes."
+        },
+        "flora": {
+          "description": "Garden center premium com plantas ornamentais e decoração natural."
+        }
+      },
       "selection_label": "Seleção",
       "selection_description": "Escolha um projeto para ver o essencial antes de entrar no case completo.",
       "projects_nav_label": "Seleção de projetos",

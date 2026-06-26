@@ -13,6 +13,7 @@ import { Contact } from "@/src/components/sections/contact"
 import { FAQ } from "@/src/components/sections/faq"
 import { Hero } from "@/src/components/sections/hero"
 import { MaguiConnect } from "@/src/components/sections/maguiConnect"
+import { PortfolioShowcase } from "@/src/components/sections/portfolioShowcase"
 import { Services } from "@/src/components/sections/services"
 import { Value } from "@/src/components/sections/value"
 
@@ -103,6 +104,7 @@ export default async function Page({
         <Hero />
         <Value />
         <Services />
+        <PortfolioShowcase />
         <MaguiConnect />
 
         <div className="md:pt-44">

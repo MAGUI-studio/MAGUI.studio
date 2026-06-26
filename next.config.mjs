@@ -28,6 +28,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
       },
+      {
+        protocol: "https",
+        hostname: "portfolio.magui.studio",
+      },
     ],
   },
   async headers() {
@@ -38,7 +42,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms https://c.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://www.googletagmanager.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://flagcdn.com https://images.unsplash.com https://img.freepik.com https://raw.githubusercontent.com https://www.clarity.ms https://c.clarity.ms https://t.clarity.ms; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com https://analytics.google.com https://www.googletagmanager.com https://www.clarity.ms https://c.clarity.ms https://t.clarity.ms https://y.clarity.ms; form-action 'self' https://api.web3forms.com; manifest-src 'self'; frame-src 'self'; object-src 'none';",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms https://c.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://portfolio.magui.studio https://www.googletagmanager.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://flagcdn.com https://images.unsplash.com https://img.freepik.com https://raw.githubusercontent.com https://www.clarity.ms https://c.clarity.ms https://t.clarity.ms; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com https://analytics.google.com https://www.googletagmanager.com https://www.clarity.ms https://c.clarity.ms https://t.clarity.ms https://y.clarity.ms; form-action 'self' https://api.web3forms.com; manifest-src 'self'; frame-src 'self'; object-src 'none';",
           },
           {
             key: "X-Content-Type-Options",

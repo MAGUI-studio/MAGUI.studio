@@ -147,6 +147,27 @@
       "title_primary": "Project",
       "title_accent": "Spotlight.",
       "description": "Projects shaped to turn positioning into digital presence, with strong visual direction, strategic clarity, and high-level execution.",
+      "view_more": "View more projects",
+      "projects": {
+        "cazetv": {
+          "description": "Sports broadcasting channel and digital entertainment."
+        },
+        "powervet": {
+          "description": "Premium veterinary clinic specialized in wild and exotic animals."
+        },
+        "arco-odontologia": {
+          "description": "Modern dental clinic with digital diagnosis and human care."
+        },
+        "flow": {
+          "description": "Premium marine aquarium store with high-end equipment and corals."
+        },
+        "haven": {
+          "description": "Specialized inclusive hair studio for neurodivergent individuals."
+        },
+        "flora": {
+          "description": "Premium garden center featuring plants, pots, and natural decor."
+        }
+      },
       "selection_label": "Selection",
       "selection_description": "Choose a project to see the essentials before opening the full case study.",
       "projects_nav_label": "Project selection",
