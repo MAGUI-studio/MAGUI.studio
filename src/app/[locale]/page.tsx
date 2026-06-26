@@ -6,6 +6,9 @@ import dynamic from "next/dynamic"
 
 import { FAQItem } from "@/src/types/sections"
 
+import { SectionDivider } from "@/src/components/ui/sectionDivider"
+import { ServiceMarquee } from "@/src/components/ui/serviceMarquee"
+
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
@@ -15,6 +18,7 @@ import { Hero } from "@/src/components/sections/hero"
 import { MaguiConnect } from "@/src/components/sections/maguiConnect"
 import { PortfolioShowcase } from "@/src/components/sections/portfolioShowcase"
 import { Services } from "@/src/components/sections/services"
+import { Statistics } from "@/src/components/sections/statistics"
 import { Value } from "@/src/components/sections/value"
 
 import { siteConfig } from "@/src/config/site"
@@ -102,16 +106,24 @@ export default async function Page({
       <Header />
       <main>
         <Hero />
+
+        <ServiceMarquee />
+
         <Value />
         <Services />
+
         <PortfolioShowcase />
+        <SectionDivider />
         <MaguiConnect />
+        <SectionDivider />
+        <Statistics />
 
         <div className="md:pt-44">
           <CurvedLoop marqueeText={t("text")} speed={1.5} curveAmount={150} />
         </div>
 
         <FAQ />
+        <SectionDivider />
         <Contact />
       </main>
       <Footer />

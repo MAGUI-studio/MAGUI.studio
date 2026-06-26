@@ -50,6 +50,36 @@
     --color-primary-foreground: var(--primary-foreground);
     --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
+    --animate-marquee: marquee 35s linear infinite;
+    --animate-marquee-reverse: marquee-reverse 35s linear infinite;
+    --animate-ken-burns: ken-burns 25s ease-in-out infinite alternate;
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes marquee-reverse {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes ken-burns {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.04);
+        }
+    }
 }
 
 @layer base {
@@ -59,4 +89,17 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-brand-primary/20 selection:text-brand-primary;
     }
+}
+
+@utility text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-ken-burns {
+    animation: none;
+  }
 }

@@ -4,6 +4,8 @@ import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import Link from "next/link"
 
+import { ParallaxImage } from "@/src/components/ui/parallaxImage"
+import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
 import {
   ArrowUpRightIcon,
@@ -60,72 +62,85 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
                 </span>
               </h2>
 
-              <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl lg:text-2xl">
-                {t("description")}
-              </p>
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl lg:text-2xl">
+                  {t("description")}
+                </p>
+              </ScrollReveal>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              {features.map((feature) => {
-                const Icon = feature.icon
+            <ScrollReveal variant="scaleUp" delay={0.2}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {features.map((feature) => {
+                  const Icon = feature.icon
 
-                return (
-                  <div
-                    key={feature.title}
-                    className="flex min-h-18 items-center gap-4 rounded-2xl bg-muted/20 px-4 py-4"
-                  >
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white">
-                      <Icon size={24} weight="bold" />
+                  return (
+                    <div
+                      key={feature.title}
+                      className="flex min-h-18 items-center gap-4 rounded-2xl bg-muted/20 px-4 py-4"
+                    >
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white">
+                        <Icon size={24} weight="bold" />
+                      </div>
+                      <p className="text-sm font-medium leading-snug text-foreground md:text-base">
+                        {feature.title}
+                      </p>
                     </div>
-                    <p className="text-sm font-medium leading-snug text-foreground md:text-base">
-                      {feature.title}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-
-            <div className="grid gap-4 pt-8 md:grid-cols-[1fr_auto] md:items-end">
-              <div className="space-y-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
-                  {t("offer_eyebrow")}
-                </p>
-                <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                  {t("offer")}
-                </p>
+                  )
+                })}
               </div>
-            </div>
+            </ScrollReveal>
 
-            <Link
-              href={`/#${idT("contact")}`}
-              prefetch={false}
-              className="group inline-flex w-full min-h-16 items-center justify-between gap-4 rounded-2xl bg-brand-primary px-5 py-4 text-white transition-transform duration-500 hover:scale-[1.01]"
-            >
-              <span className="text-[10px] font-black uppercase tracking-[0.28em]">
-                {t("cta")}
-              </span>
-              <ArrowUpRightIcon
-                size={18}
-                weight="bold"
-                className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
-            </Link>
+            <ScrollReveal variant="fadeUp" delay={0.3}>
+              <div className="grid gap-4 pt-8 md:grid-cols-[1fr_auto] md:items-end">
+                <div className="space-y-3">
+                  <p className="text-[10px] font-black uppercase tracking-[0.34em] text-brand-primary">
+                    {t("offer_eyebrow")}
+                  </p>
+                  <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                    {t("offer")}
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal variant="fadeUp" delay={0.4}>
+              <Link
+                href={`/#${idT("contact")}`}
+                prefetch={false}
+                className="group inline-flex w-full min-h-16 items-center justify-between gap-4 rounded-2xl bg-brand-primary px-5 py-4 text-white transition-all duration-500 hover:scale-[1.01] active:scale-[0.98]"
+              >
+                <span className="text-[10px] font-black uppercase tracking-[0.28em]">
+                  {t("cta")}
+                </span>
+                <ArrowUpRightIcon
+                  size={18}
+                  weight="bold"
+                  className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+              </Link>
+            </ScrollReveal>
           </div>
         </article>
 
         <article className="relative overflow-hidden bg-background p-3 md:p-4">
           <div className="relative h-full min-h-180 overflow-hidden rounded-[28px] bg-background md:min-h-120">
-            <Image
-              src="/images/MAGUIConnect.png"
-              alt={t("image_alt")}
-              fill
-              sizes="(max-width: 1280px) 100vw, 45vw"
-              className="object-cover"
-            />
+            <ParallaxImage
+              className="absolute inset-0 h-[120%] w-full"
+              factor={0.08}
+            >
+              <Image
+                src="/images/MAGUIConnect.png"
+                alt={t("image_alt")}
+                fill
+                sizes="(max-width: 1280px) 100vw, 45vw"
+                className="object-cover"
+              />
+            </ParallaxImage>
 
-            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-black via-black/72 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-black via-black/72 to-transparent pointer-events-none" />
 
-            <div className="relative flex h-full flex-col justify-between p-6 md:p-8 lg:p-10">
+            <div className="relative flex h-full flex-col justify-between p-6 md:p-8 lg:p-10 pointer-events-none">
               <div className="max-w-xs rounded-2xl bg-black/28 p-4 text-white backdrop-blur-sm">
                 <p className="text-[10px] font-black uppercase tracking-[0.34em] text-white/72">
                   {t("card_eyebrow")}

@@ -136,7 +136,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
       onPointerLeave={endDrag}
     >
       <svg
-        className="select-none w-full overflow-visible block aspect-1440/250 text-[180px] md:text-[8rem] lg:text-[10rem] font-heading font-black uppercase leading-none tracking-tighter"
+        className="select-none w-full overflow-visible block aspect-1440/250 text-[200px] md:text-[8rem] lg:text-[10rem] font-heading font-black uppercase leading-none tracking-tighter"
         viewBox="0 0 1440 250"
       >
         <text
@@ -158,7 +158,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
         {ready && (
           <text
             xmlSpace="preserve"
-            className="fill-foreground/10 dark:fill-white/3"
+            className="fill-foreground/20 dark:fill-white/8"
           >
             <textPath
               ref={textPathRef}

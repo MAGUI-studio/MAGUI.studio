@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import Link from "next/link"
 
+import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
 import { ArrowUpRightIcon } from "@/src/components/ui/serverIcons"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
@@ -90,97 +91,103 @@ export async function Services(): Promise<React.JSX.Element> {
             </h2>
           </div>
 
-          <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
-            {t("description")}
-          </p>
+          <ScrollReveal variant="fadeUp" delay={0.1}>
+            <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
+              {t("description")}
+            </p>
+          </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-px border border-foreground/8 bg-foreground/8 2xl:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.id}
-              className="group relative isolate min-h-120 overflow-hidden bg-background lg:min-h-152"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
-                quality={60}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div
-                className={cn(
-                  "absolute inset-0 bg-linear-to-br opacity-95 transition-opacity duration-700 group-hover:opacity-88",
-                  service.overlayClassName
-                )}
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
+        <ScrollReveal variant="scaleUp" delay={0.2}>
+          <div className="grid grid-cols-1 gap-px border border-foreground/8 bg-foreground/8 2xl:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.id}
+                className="group relative isolate min-h-120 overflow-hidden bg-background lg:min-h-152"
+              >
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  quality={60}
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  className={cn(
+                    "absolute inset-0 bg-linear-to-br opacity-95 transition-opacity duration-700 group-hover:opacity-88",
+                    service.overlayClassName
+                  )}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
 
-              <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
-                <div className="flex items-start justify-between gap-6">
-                  <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
-                    {service.id}
-                  </span>
-                  <div className="flex items-center gap-3">
-                    <div className="h-px w-8 bg-white/30" />
-                    <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
-                      {service.label}
+                <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
+                  <div className="flex items-start justify-between gap-6">
+                    <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
+                      {service.id}
                     </span>
+                    <div className="flex items-center gap-3">
+                      <div className="h-px w-8 bg-white/30" />
+                      <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
+                        {service.label}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                    <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-4xl">
+                      <StaggeredText text={service.title} />
+                    </h3>
+
+                    <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/78 md:text-xl">
+                      {service.description}
+                    </p>
+
+                    <Link
+                      href={`/?service=${service.inquiryValue}#${idT("contact")}`}
+                      prefetch={false}
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-white/8 text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-white/35 group-hover:bg-white/14"
+                      aria-label={`${t("selection")} ${service.title}`}
+                    >
+                      <ArrowUpRightIcon size={20} weight="bold" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="space-y-8">
-                  <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-4xl">
-                    <StaggeredText text={service.title} />
-                  </h3>
-
-                  <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/78 md:text-xl">
-                    {service.description}
-                  </p>
-
-                  <Link
-                    href={`/?service=${service.inquiryValue}#${idT("contact")}`}
-                    prefetch={false}
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-white/8 text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-white/35 group-hover:bg-white/14"
-                    aria-label={`${t("selection")} ${service.title}`}
-                  >
-                    <ArrowUpRightIcon size={20} weight="bold" />
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <aside className="grid gap-8 bg-muted/20 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8 lg:p-10">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
-              {t("portfolio.eyebrow")}
-            </span>
-            <h3 className="font-heading text-3xl font-black uppercase leading-[0.94] tracking-[-0.05em] text-foreground md:text-5xl">
-              {t("portfolio.title")}
-            </h3>
-            <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
-              {t("portfolio.description")}
-            </p>
+              </article>
+            ))}
           </div>
+        </ScrollReveal>
 
-          <a
-            href={siteConfig.portfolio.url}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-primary px-6 text-xs font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-brand-primary/12 transition-all duration-300 hover:scale-[1.02] hover:bg-brand-primary/92 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-          >
-            {t("portfolio.cta")}
-            <ArrowUpRightIcon
-              size={18}
-              weight="bold"
-              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              aria-hidden="true"
-            />
-          </a>
-        </aside>
+        <ScrollReveal variant="fadeUp" delay={0.3}>
+          <aside className="grid gap-8 bg-muted/20 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8 lg:p-10">
+            <div className="max-w-3xl space-y-4">
+              <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
+                {t("portfolio.eyebrow")}
+              </span>
+              <h3 className="font-heading text-3xl font-black uppercase leading-[0.94] tracking-[-0.05em] text-foreground md:text-5xl">
+                {t("portfolio.title")}
+              </h3>
+              <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
+                {t("portfolio.description")}
+              </p>
+            </div>
+
+            <a
+              href={siteConfig.portfolio.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-primary px-6 text-xs font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-brand-primary/12 transition-all duration-300 hover:scale-[1.02] hover:bg-brand-primary/92 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+            >
+              {t("portfolio.cta")}
+              <ArrowUpRightIcon
+                size={18}
+                weight="bold"
+                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                aria-hidden="true"
+              />
+            </a>
+          </aside>
+        </ScrollReveal>
       </div>
     </Section>
   )

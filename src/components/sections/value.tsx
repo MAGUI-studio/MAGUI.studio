@@ -4,16 +4,9 @@ import { getMessages, getTranslations } from "next-intl/server"
 
 import { Discipline } from "@/src/types/sections"
 
+import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
-
-import { ValueDisciplineCarousel } from "@/src/components/sections/valueCarousel"
-
-const disciplineImages = [
-  "/images/strategy.webp",
-  "/images/code.webp",
-  "/images/ui.webp",
-] as const
 
 export async function Value(): Promise<React.JSX.Element> {
   const t = await getTranslations("Index.Value")
@@ -27,7 +20,7 @@ export async function Value(): Promise<React.JSX.Element> {
       className="pt-24 md:pt-26 lg:pt-40"
       withContainer={true}
     >
-      <div className="space-y-14 md:space-y-16 lg:space-y-24">
+      <div className="space-y-16 md:space-y-20 lg:space-y-28">
         <div className="flex flex-col gap-10 md:gap-12 2xl:flex-row lg:gap-20">
           <div className="space-y-7 md:space-y-8">
             <div className="flex items-center gap-4">
@@ -48,20 +41,42 @@ export async function Value(): Promise<React.JSX.Element> {
           </div>
 
           <div className="2xl:max-w-3xl 2xl:self-end">
-            <div className="relative overflow-hidden">
-              <p className="text-lg font-medium leading-snug tracking-tight text-muted-foreground md:text-xl lg:text-3xl">
-                {t("description")}
-              </p>
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.2}>
+              <div className="relative overflow-hidden">
+                <p className="text-lg font-medium leading-snug tracking-tight text-muted-foreground md:text-xl lg:text-3xl">
+                  {t("description")}
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-px border border-foreground/8 bg-foreground/8 2xl:grid-cols-3">
-          <ValueDisciplineCarousel
-            disciplines={disciplines}
-            images={disciplineImages}
-          />
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.3}>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
+            {disciplines.map((discipline) => (
+              <article key={discipline.id} className="group space-y-6">
+                <div className="flex items-baseline justify-between">
+                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">
+                    {discipline.label}
+                  </span>
+                  <span className="font-heading text-4xl font-black leading-none text-foreground/20 group-hover:text-brand-primary/40 transition-colors duration-500">
+                    {discipline.id}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-2xl font-black uppercase leading-tight tracking-tight text-foreground md:text-3xl">
+                  {discipline.title}
+                </h3>
+
+                <div className="h-[2px] w-12 bg-foreground/10 group-hover:w-full group-hover:bg-brand-primary transition-all duration-500 my-3" />
+
+                <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
+                  {discipline.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </Section>
   )

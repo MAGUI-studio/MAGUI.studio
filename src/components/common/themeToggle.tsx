@@ -15,6 +15,7 @@ export function ThemeToggle(): React.JSX.Element {
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 

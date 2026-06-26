@@ -3,6 +3,7 @@ import * as React from "react"
 import { getTranslations } from "next-intl/server"
 import dynamic from "next/dynamic"
 
+import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
@@ -43,14 +44,18 @@ export async function Contact(): Promise<React.JSX.Element> {
                 <StaggeredText text={contactTitleAccent} />
               </span>
             </h2>
-            <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
-              {t("description")}
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0.1}>
+              <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
+                {t("description")}
+              </p>
+            </ScrollReveal>
           </div>
         </header>
-        <React.Suspense fallback={null}>
-          <ProjectInquiryForm origin="contact" />
-        </React.Suspense>
+        <ScrollReveal variant="scaleUp" delay={0.2}>
+          <React.Suspense fallback={null}>
+            <ProjectInquiryForm origin="contact" />
+          </React.Suspense>
+        </ScrollReveal>
       </div>
     </Section>
   )

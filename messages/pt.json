@@ -9,10 +9,36 @@
       "process": "processo",
       "faq": "duvidas",
       "contact": "contato",
-      "connect": "magui-connect"
+      "connect": "magui-connect",
+      "statistics": "estatisticas"
     },
     "Marquee": {
       "text": "ESTRATÉGIA ✦ ENGENHARIA ✦ DESIGN ✦ PERFORMANCE ✦ AUTORIDADE ✦"
+    },
+    "ServiceMarquee": {
+      "landing_pages": "LANDING PAGES",
+      "institutional": "SITES INSTITUCIONAIS",
+      "interface_design": "DESIGN DE INTERFACE",
+      "sales_pages": "PÁGINAS DE VENDAS",
+      "visual_strategy": "ESTRATÉGIA VISUAL",
+      "frontend_engineering": "ENGENHARIA FRONT-END"
+    },
+    "Statistics": {
+      "eyebrow": "Métricas de Rigor",
+      "title_1": "Nosso Padrão",
+      "title_2": "Em Números",
+      "stat_1_val": "4",
+      "stat_1_label": "Anos de Experiência",
+      "stat_1_desc": "Desenvolvimento de sites e sistemas web de alto impacto.",
+      "stat_2_val": "100",
+      "stat_2_label": "Foco Autoral",
+      "stat_2_desc": "Projetos desenhados do absoluto zero, sem templates prontos.",
+      "stat_3_val": "90",
+      "stat_3_label": "Core Web Vitals",
+      "stat_3_desc": "Foco em carregamento ultra rápido e performance otimizada.",
+      "stat_4_val": "2026",
+      "stat_4_label": "Ano de Fundação",
+      "stat_4_desc": "Estúdio estabelecido com infraestrutura de ponta."
     },
     "Nav": {
       "home": "Início",

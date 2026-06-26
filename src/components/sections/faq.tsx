@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from "next-intl/server"
 
 import { FAQItem } from "@/src/types/sections"
 
+import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
 import { CaretDownIcon } from "@/src/components/ui/serverIcons"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
@@ -42,11 +43,13 @@ export async function FAQ(): Promise<React.JSX.Element> {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          {items.map((item, index) => (
-            <FAQModule key={item.question} index={index} item={item} />
-          ))}
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.2}>
+          <div className="flex flex-col gap-4">
+            {items.map((item, index) => (
+              <FAQModule key={item.question} index={index} item={item} />
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </Section>
   )
@@ -70,7 +73,7 @@ function FAQModule({ item, index }: FAQModuleProps): React.JSX.Element {
             </span>
 
             <div className="min-w-0">
-              <h3 className="font-heading text-lg font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground transition-colors duration-500 group-open:text-brand-primary sm:text-xl md:text-2xl lg:text-3xl dark:text-white">
+              <h3 className="font-heading text-base font-bold leading-[1.25] tracking-tight text-foreground transition-colors duration-500 group-open:text-brand-primary sm:text-lg md:text-xl lg:text-2xl dark:text-white">
                 {item.question}
               </h3>
             </div>
