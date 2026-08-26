@@ -58,3 +58,4 @@ O **MAGUI.studio** é um estúdio de estratégia visual e engenharia aplicado ao
 - **Full i18n:** Sistema de internacionalização (next-intl) com sincronização automatizada de chaves e tipagem estrita.
 - **Strict Typing & Validation:** Uso extensivo de TypeScript e Zod para garantir integridade de dados e segurança operacional.
 - **Elite Testing Strategy:** Suite completa de testes unitários (Vitest) e E2E (Playwright) para validação contínua da saúde do projeto.
+
