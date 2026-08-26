@@ -173,6 +173,44 @@
       "title_primary": "Projetos",
       "title_accent": "em destaque",
       "description": "Projetos pensados para traduzir posicionamento em presença digital, com direção visual forte, clareza estratégica e execução de alto nível.",
+      "featured_case": {
+        "badge": "Projeto Selecionado",
+        "client": "Pirâmide Imóveis • Parque Una SJC",
+        "title": "Pirâmide Imóveis • Parque Una SJC",
+        "subtitle": "Desenvolvida exclusivamente para a Pirâmide Imóveis, a landing page do Parque Una São José dos Campos é uma experiência digital criada para apresentar o primeiro bairro planejado e aberto da cidade. Mais do que um site de lançamento, a plataforma funciona como um ecossistema completo de posicionamento e captação de clientes qualificados para o Residencial RIZA e a torre comercial MARTIM. Combinando uma estética visual refinada, mini-documentários institucionais e suporte nativo a três idiomas (Português, Inglês e Espanhol), a página envolve o visitante na atmosfera do Novo Urbanismo e entrega uma jornada fluida, conectando compradores e investidores do Brasil e do exterior diretamente à equipe de corretores em tempo real.",
+        "image_alt": "Plataforma digital Pirâmide Imóveis Parque Una SJC",
+        "challenge_label": "Contexto",
+        "challenge_text": "Traduzir a escala e a proposta urbanística do Parque Una em uma interface fluida, estruturada para os lançamentos do Residencial RIZA e Comercial MARTIM.",
+        "experience_label": "A Solução Digital",
+        "experience_intro": "Uma experiência imersiva guiada por direção de arte, narrativa visual e engenharia de interface:",
+        "pillars": [
+          {
+            "title": "Narrativa Visual",
+            "description": "Conteúdo audiovisual e entrevistas que apresentam o conceito de Novo Urbanismo do bairro."
+          },
+          {
+            "title": "Mapeamento Interativo",
+            "description": "Exploração dinâmica da localização, implantação das torres e áreas de convivência."
+          },
+          {
+            "title": "Plataforma Multilíngue",
+            "description": "Arquitetura adaptada em Português, Inglês e Espanhol para investidores globais."
+          },
+          {
+            "title": "Integração Comercial",
+            "description": "Acesso aos books técnicos, atendimento direto com corretores e notificações em tempo real."
+          }
+        ],
+        "tags": [
+          "Urbanismo",
+          "Bairro Planejado",
+          "Interface Digital",
+          "Plataforma Multilíngue"
+        ],
+        "visit_project": "Ver projeto",
+        "cta": "Iniciar um projeto"
+      },
+      "other_projects_label": "Mais projetos selecionados",
       "view_more": "Ver mais projetos",
       "projects": {
         "cazetv": {

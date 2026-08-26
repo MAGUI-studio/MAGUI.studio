@@ -30,3 +30,8 @@ export interface Discipline {
   label: string
   description: string
 }
+
+export interface FeaturedCasePillar {
+  title: string
+  description: string
+}

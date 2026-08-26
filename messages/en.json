@@ -173,6 +173,44 @@
       "title_primary": "Project",
       "title_accent": "Spotlight.",
       "description": "Projects shaped to turn positioning into digital presence, with strong visual direction, strategic clarity, and high-level execution.",
+      "featured_case": {
+        "badge": "Selected Project",
+        "client": "Pirâmide Imóveis • Parque Una SJC",
+        "title": "Pirâmide Imóveis • Parque Una SJC",
+        "subtitle": "Developed exclusively for Pirâmide Imóveis, the Parque Una São José dos Campos landing page is a digital experience created to present the city's first open, master-planned neighborhood. More than a launch site, the platform operates as a complete ecosystem for positioning and acquiring qualified clients for the RIZA Residential and MARTIM Commercial towers. Combining refined visual aesthetics, institutional mini-documentaries, and native support for three languages (Portuguese, English, and Spanish), the page immerses visitors in the atmosphere of New Urbanism and delivers a seamless journey, connecting domestic and international buyers directly with the brokerage team in real time.",
+        "image_alt": "Digital platform Pirâmide Imóveis Parque Una SJC",
+        "challenge_label": "Context",
+        "challenge_text": "Translating the scale and urban planning of Parque Una into a seamless interface built for the RIZA and MARTIM launches.",
+        "experience_label": "Digital Solution",
+        "experience_intro": "An immersive experience shaped by art direction, visual storytelling, and interface engineering:",
+        "pillars": [
+          {
+            "title": "Visual Storytelling",
+            "description": "Audiovisual content and interviews presenting the district's New Urbanism concept."
+          },
+          {
+            "title": "Interactive Mapping",
+            "description": "Dynamic exploration of master plans, residential towers, and civic spaces."
+          },
+          {
+            "title": "Multilingual Architecture",
+            "description": "Fully adapted in Portuguese, English, and Spanish for global investors."
+          },
+          {
+            "title": "Commercial Integration",
+            "description": "Direct access to digital brochures, broker communication, and real-time alerts."
+          }
+        ],
+        "tags": [
+          "Urbanism",
+          "Master Plan",
+          "Digital Interface",
+          "Multilingual Platform"
+        ],
+        "visit_project": "View project",
+        "cta": "Start a project"
+      },
+      "other_projects_label": "More selected projects",
       "view_more": "View more projects",
       "projects": {
         "cazetv": {

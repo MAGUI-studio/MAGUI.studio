@@ -63,10 +63,45 @@ const translationData: Record<string, Record<string, unknown>> = {
       },
     ],
   },
+  "Index.Showcase": {
+    eyebrow: "Portfólio Curado",
+    title_primary: "Projetos",
+    title_accent: "em destaque",
+    description: "Projetos pensados para traduzir posicionamento",
+    featured_case: {
+      badge: "Projeto Selecionado",
+      client: "Pirâmide Imóveis • Parque Una SJC",
+      title: "Pirâmide Imóveis • Parque Una SJC",
+      subtitle: "Desenvolvida exclusivamente para a Pirâmide Imóveis",
+      image_alt: "Plataforma digital Pirâmide Imóveis Parque Una SJC",
+      challenge_label: "Contexto",
+      challenge_text: "Traduzir a escala e a proposta urbanística",
+      experience_label: "A Solução Digital",
+      experience_intro: "Uma experiência imersiva guiada por direção de arte",
+      pillars: [
+        {
+          title: "Narrativa Visual",
+          description: "Conteúdo audiovisual e entrevistas",
+        },
+      ],
+      tags: [
+        "Urbanismo",
+        "Bairro Planejado",
+        "Interface Digital",
+        "Plataforma Multilíngue",
+      ],
+      visit_project: "Ver projeto",
+      cta: "Iniciar um projeto",
+    },
+    other_projects_label: "Mais projetos selecionados",
+    view_more: "Ver mais projetos",
+  },
   "Index.Ids": {
     about: "manifesto",
     faq: "duvidas",
     process: "processo",
+    portfolio: "portfolio",
+    contact: "contato",
   },
   ProjectCases: {
     archive_eyebrow: "Portfólio",
@@ -143,8 +178,23 @@ const serverMessages = {
     FAQ: translationData["Index.FAQ"],
     Ids: translationData["Index.Ids"],
     Process: translationData["Index.Process"],
+    Showcase: translationData["Index.Showcase"],
   },
   ProjectCases: translationData.ProjectCases,
+}
+
+function getNestedValue(obj: Record<string, unknown>, path: string): unknown {
+  if (path in obj) return obj[path]
+  const parts = path.split(".")
+  let current: unknown = obj
+  for (const part of parts) {
+    if (current && typeof current === "object" && part in current) {
+      current = (current as Record<string, unknown>)[part]
+    } else {
+      return undefined
+    }
+  }
+  return current
 }
 
 vi.mock("next-intl", () => ({
@@ -154,7 +204,7 @@ vi.mock("next-intl", () => ({
       key: string,
       values?: Record<string, string | number>
     ): string => {
-      const value = scopedData[key]
+      const value = getNestedValue(scopedData, key)
 
       if (typeof value !== "string") {
         return key
@@ -171,7 +221,8 @@ vi.mock("next-intl", () => ({
       )
     }
 
-    translate.raw = (key: string): unknown => scopedData[key] ?? []
+    translate.raw = (key: string): unknown =>
+      getNestedValue(scopedData, key) ?? []
 
     return translate
   },
@@ -189,7 +240,7 @@ vi.mock("next-intl/server", () => ({
       key: string,
       values?: Record<string, string | number>
     ): string => {
-      const value = scopedData[key]
+      const value = getNestedValue(scopedData, key)
 
       if (typeof value !== "string") {
         return key
@@ -206,7 +257,8 @@ vi.mock("next-intl/server", () => ({
       )
     }
 
-    translate.raw = (key: string): unknown => scopedData[key] ?? []
+    translate.raw = (key: string): unknown =>
+      getNestedValue(scopedData, key) ?? []
 
     return translate
   },
