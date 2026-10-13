@@ -10,6 +10,7 @@ import { Link } from "@/src/i18n/navigation"
 import { ArrowUpRightIcon } from "@phosphor-icons/react"
 import { AnimatePresence, m } from "framer-motion"
 
+import { CtaButton } from "@/src/components/ui/ctaButton"
 import { NavLink } from "@/src/components/ui/navLink"
 
 import { cn } from "@/src/lib/utils/utils"
@@ -133,8 +134,6 @@ export const Header = React.memo(function Header(): React.JSX.Element {
         target: "_blank",
       },
       { href: `/#${idT("services")}`, label: t("services") },
-      { href: siteConfig.method.path, label: t("method") },
-      { href: siteConfig.studio.path, label: t("about") },
       { href: siteConfig.contact.path, label: t("contact") },
     ],
     [idT, t]
@@ -171,113 +170,119 @@ export const Header = React.memo(function Header(): React.JSX.Element {
     <>
       <header
         className={cn(
-          "relative flex h-24 w-full max-w-440 items-center justify-between bg-white! px-6 transition-colors duration-300 dark:bg-[#161616]! md:px-10 2xl:px-20",
-          isOpen ? "z-220 backdrop-blur-xl" : "z-100"
+          "sticky top-0 z-100 w-full border-b border-border/60 bg-background/85 px-6 backdrop-blur-xl transition-colors duration-300 md:px-12 2xl:px-16",
+          isOpen ? "z-220" : "z-100"
         )}
       >
-        <div className="relative z-220 flex min-w-0 shrink items-center gap-6 2xl:gap-8">
-          <Link
-            href="/"
-            className="flex h-full shrink-0 items-center"
-            aria-label={t("home_label")}
-            onClick={() => setIsOpen(false)}
-          >
-            <Image
-              src="/logos/LOGO_VAR_03_DM.svg"
-              alt={t("logo_alt")}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="h-6 w-auto min-w-28 object-contain dark:hidden 2xl:min-w-32"
-            />
-            <Image
-              src="/logos/LOGO_VAR_03_LM.svg"
-              alt={t("logo_alt")}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="hidden h-6 w-auto min-w-28 object-contain dark:block 2xl:min-w-32"
-            />
-          </Link>
-
-          <div className="hidden shrink-0 items-center gap-5 border-l border-foreground/10 pl-6 2xl:flex">
-            <nav
-              className="hidden min-w-0 items-center 2xl:flex"
-              aria-label={t("main_nav_label")}
+        <div className="flex h-20 w-full items-center justify-between">
+          <div className="relative z-220 flex min-w-0 shrink items-center gap-8">
+            <Link
+              href="/"
+              className="flex h-full shrink-0 items-center outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+              aria-label={t("home_label")}
+              onClick={() => setIsOpen(false)}
             >
-              <div className="flex min-w-0 items-center gap-6 2xl:gap-8">
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.href}
-                    href={link.href}
-                    label={link.label}
-                    rel={link.rel}
-                    target={link.target}
-                    className="whitespace-nowrap"
-                  />
-                ))}
-              </div>
-            </nav>
-          </div>
-        </div>
-
-        <div className="flex min-w-0 items-center justify-end gap-6 2xl:flex-1 2xl:gap-8">
-          <div className="hidden shrink-0 items-center gap-4 2xl:flex">
-            <LanguageSwitcher />
-            <ThemeToggle />
-            <a
-              href={dashboardHref}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex h-10 items-center justify-center gap-2 rounded-none bg-brand-primary px-4 text-sm font-medium whitespace-nowrap text-white shadow-lg shadow-brand-primary/12 transition-all duration-300 hover:bg-brand-primary/92 hover:shadow-xl hover:shadow-brand-primary/18 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-            >
-              <span>{t("client_area")}</span>
-              <ArrowUpRightIcon
-                aria-hidden="true"
-                size={16}
-                weight="regular"
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              <Image
+                src="/logos/LOGO_VAR_03_DM.svg"
+                alt={t("logo_alt")}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="h-6 w-auto min-w-28 object-contain dark:hidden sm:h-7 2xl:min-w-32"
+                priority
               />
-            </a>
+              <Image
+                src="/logos/LOGO_VAR_03_LM.svg"
+                alt={t("logo_alt")}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="hidden h-6 w-auto min-w-28 object-contain dark:block sm:h-7 2xl:min-w-32"
+                priority
+              />
+            </Link>
+
+            <div className="hidden shrink-0 items-center gap-6 border-l border-border/60 pl-8 xl:flex">
+              <nav
+                className="hidden min-w-0 items-center xl:flex"
+                aria-label={t("main_nav_label")}
+              >
+                <div className="flex min-w-0 items-center gap-7 lg:gap-8">
+                  {navLinks.map((link) => (
+                    <NavLink
+                      key={link.href}
+                      href={link.href}
+                      label={link.label}
+                      rel={link.rel}
+                      target={link.target}
+                      className="text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap"
+                    />
+                  ))}
+                </div>
+              </nav>
+            </div>
           </div>
 
-          <button
-            ref={toggleButtonRef}
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative z-220 flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-none border border-foreground/5 bg-foreground/5 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary 2xl:hidden"
-            aria-label={isOpen ? t("close_menu") : t("open_menu")}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-          >
-            <m.span
-              animate={{
-                rotate: isOpen ? 45 : 0,
-                y: isOpen ? 4 : 0,
-                width: isOpen ? 24 : 16,
-              }}
-              className="h-0.5 bg-foreground rounded-none origin-center"
-              aria-hidden="true"
-            />
-            <m.span
-              animate={{
-                opacity: isOpen ? 0 : 1,
-                x: isOpen ? 10 : 0,
-                width: 24,
-              }}
-              className="h-0.5 bg-foreground rounded-none"
-              aria-hidden="true"
-            />
-            <m.span
-              animate={{
-                rotate: isOpen ? -45 : 0,
-                y: isOpen ? -4 : 0,
-                width: isOpen ? 24 : 16,
-              }}
-              className="h-0.5 bg-foreground rounded-none origin-center"
-              aria-hidden="true"
-            />
-          </button>
+          <div className="flex min-w-0 items-center justify-end gap-5 sm:gap-6">
+            <div className="hidden shrink-0 items-center gap-4 xl:flex">
+              <LanguageSwitcher />
+              <ThemeToggle />
+              <CtaButton
+                href={dashboardHref}
+                target="_blank"
+                rel="noreferrer"
+                variant="primary"
+                size="sm"
+                className="h-10 px-5 text-xs font-black tracking-[0.18em]"
+              >
+                <span>{t("client_area")}</span>
+                <ArrowUpRightIcon
+                  aria-hidden="true"
+                  size={16}
+                  weight="bold"
+                  className="transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5"
+                />
+              </CtaButton>
+            </div>
+
+            <button
+              ref={toggleButtonRef}
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="relative z-220 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-sm border border-border/60 bg-muted/30 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary xl:hidden"
+              aria-label={isOpen ? t("close_menu") : t("open_menu")}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+            >
+              <m.span
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  y: isOpen ? 4 : 0,
+                  width: isOpen ? 22 : 16,
+                }}
+                className="h-0.5 bg-foreground rounded-none origin-center"
+                aria-hidden="true"
+              />
+              <m.span
+                animate={{
+                  opacity: isOpen ? 0 : 1,
+                  x: isOpen ? 10 : 0,
+                  width: 22,
+                }}
+                className="h-0.5 bg-foreground rounded-none"
+                aria-hidden="true"
+              />
+              <m.span
+                animate={{
+                  rotate: isOpen ? -45 : 0,
+                  y: isOpen ? -4 : 0,
+                  width: isOpen ? 22 : 16,
+                }}
+                className="h-0.5 bg-foreground rounded-none origin-center"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -329,21 +334,24 @@ export const Header = React.memo(function Header(): React.JSX.Element {
                 className="mt-10 border-t border-foreground/10 pt-6 md:mt-14 md:pt-8"
               >
                 <div className="flex flex-col gap-4">
-                  <a
+                  <CtaButton
                     href={dashboardHref}
                     target="_blank"
                     rel="noreferrer"
+                    variant="primary"
+                    size="md"
+                    isFullWidth
                     onClick={() => setIsOpen(false)}
-                    className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-none bg-brand-primary px-5 text-sm font-medium text-white shadow-lg shadow-brand-primary/12 transition-all duration-300 hover:bg-brand-primary/92 hover:shadow-xl hover:shadow-brand-primary/18 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+                    className="h-12"
                   >
                     <span>{t("client_area")}</span>
                     <ArrowUpRightIcon
                       aria-hidden="true"
                       size={16}
                       weight="regular"
-                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      className="transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5"
                     />
-                  </a>
+                  </CtaButton>
                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/60">
                     {t("preferences")}
                   </span>
