@@ -88,7 +88,30 @@ const translationData: Record<string, Record<string, unknown>> = {
         "Urbanismo",
         "Bairro Planejado",
         "Interface Digital",
-        "Plataforma Multilíngue",
+      ],
+      visit_project: "Ver projeto",
+      cta: "Iniciar um projeto",
+    },
+    featured_case_blog: {
+      badge: "Projeto Selecionado",
+      client: "Pirâmide Imóveis • Blog Editorial",
+      title: "Pirâmide Imóveis • Blog Editorial",
+      subtitle: "Portal editorial de autoridade no mercado imobiliário",
+      image_alt: "Blog editorial Pirâmide Imóveis",
+      challenge_label: "Contexto",
+      challenge_text: "Estruturar um canal editorial escalável",
+      experience_label: "A Solução Digital",
+      experience_intro: "Uma plataforma de conteúdo fluida",
+      pillars: [
+        {
+          title: "Arquitetura Headless",
+          description: "Velocidade instantânea com Next.js",
+        },
+      ],
+      tags: [
+        "Conteúdo & SEO",
+        "Portal Imobiliário",
+        "CMS Integrado",
       ],
       visit_project: "Ver projeto",
       cta: "Iniciar um projeto",
@@ -102,6 +125,41 @@ const translationData: Record<string, Record<string, unknown>> = {
     process: "processo",
     portfolio: "portfolio",
     contact: "contato",
+    connect: "connect",
+  },
+  "Index.MaguiConnect": {
+    connect: {
+      tags: ["Bio & Links", "Central Digital", "Alta Conversão"],
+      description: "Uma central digital definitiva desenvolvida para reunir bio",
+      features: [
+        "Centralize sua bio, links vitais e canais comerciais em um único lugar.",
+        "Destaque serviços e produtos com direcionamento claro para conversão.",
+        "Elimine ruídos na navegação e conduza o visitante ao próximo contato.",
+        "Estrutura rápida, fluida e impecável em celulares de qualquer tamanho.",
+      ],
+      offer_eyebrow: "Posicionamento Comercial",
+      offer: "O Connect pode ser incluído como benefício para clientes",
+      cta: "Quero meu Connect",
+      image_alt: "Showcase visual do produto Connect",
+      card_label: "Contratação avulsa",
+      price: "R$ 497",
+    },
+    forever: {
+      tags: ["Site de Casamento", "RSVP Inteligente", "PIX Direto"],
+      description: "Plataforma digital de casamento desenhada com direção",
+      features: [
+        "Confirmação de presença online com gestão de convidados em tempo real.",
+        "Lista de presentes com transferências via PIX sem nenhuma taxa oculta.",
+        "Direção de arte editorial contemporânea para computadores e celulares.",
+        "Painel exclusivo para os noivos acompanharem confirmações e presentes.",
+      ],
+      offer_eyebrow: "Posicionamento Comercial",
+      offer: "O Forever é desenvolvido pela MAGUI para casais",
+      cta: "Quero meu Forever",
+      image_alt: "Showcase visual do produto Forever",
+      card_label: "Experiência completa",
+      price: "R$ 997",
+    },
   },
   ProjectCases: {
     archive_eyebrow: "Portfólio",
@@ -177,6 +235,7 @@ const serverMessages = {
     About: translationData["Index.About"],
     FAQ: translationData["Index.FAQ"],
     Ids: translationData["Index.Ids"],
+    MaguiConnect: translationData["Index.MaguiConnect"],
     Process: translationData["Index.Process"],
     Showcase: translationData["Index.Showcase"],
   },
@@ -317,14 +376,6 @@ vi.mock("@/src/i18n/navigation", () => ({
     const pathname = typeof href === "string" ? href : href.pathname
     if (pathname === "/contato") {
       return locale === "en" ? "/contact" : "/contato"
-    }
-
-    if (pathname === "/metodo") {
-      return locale === "en" ? "/method" : "/metodo"
-    }
-
-    if (pathname === "/estudio") {
-      return locale === "en" ? "/studio" : "/estudio"
     }
 
     return pathname

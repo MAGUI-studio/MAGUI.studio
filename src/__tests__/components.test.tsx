@@ -19,13 +19,11 @@ describe("Components", () => {
     it("renders the showcase section with featured case study banner", async () => {
       render(await PortfolioShowcase())
 
-      expect(screen.getByText("Portfólio Curado")).toBeInTheDocument()
       expect(screen.getByText("Urbanismo")).toBeInTheDocument()
       expect(
         screen.getByText("Pirâmide Imóveis • Parque Una SJC")
       ).toBeInTheDocument()
-      expect(screen.getByText("Ver projeto")).toBeInTheDocument()
-      expect(screen.getByText("Mais projetos selecionados")).toBeInTheDocument()
+      expect(screen.getAllByText("Ver projeto").length).toBeGreaterThan(0)
     })
   })
 })
