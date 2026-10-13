@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { useTranslations } from "next-intl"
 
-import { Button } from "@/src/components/ui/button"
+import { CtaButton } from "@/src/components/ui/ctaButton"
 
 interface ErrorProps {
   error: Error & { digest?: string }
@@ -20,9 +20,9 @@ export default function Error({ reset }: ErrorProps): React.JSX.Element {
         {t("title")}
       </h1>
       <p className="mt-4 text-muted-foreground">{t("description")}</p>
-      <Button onClick={() => reset()} className="mt-8 rounded-full">
+      <CtaButton onClick={() => reset()} variant="primary" size="md" className="mt-8">
         {t("button")}
-      </Button>
+      </CtaButton>
     </div>
   )
 }

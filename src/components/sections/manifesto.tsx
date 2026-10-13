@@ -6,11 +6,11 @@ import Image from "next/image"
 import { Discipline } from "@/src/types/sections"
 
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import {
   ArrowUpRightIcon,
   SquaresFourIcon,
 } from "@/src/components/ui/serverIcons"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 export async function Manifesto(): Promise<React.JSX.Element> {
   const t = await getTranslations("Index.About")
@@ -24,33 +24,19 @@ export async function Manifesto(): Promise<React.JSX.Element> {
     <Section id={idT("about")} className="py-10 md:py-20" withContainer={true}>
       <div className="space-y-14 lg:space-y-20">
         <div className="max-w-6xl space-y-8">
-          <div className="flex items-center gap-4">
-            <div className="h-px w-12 bg-brand-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
-              {t("eyebrow")}
-            </span>
-          </div>
-
-          <div className="space-y-8">
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
-              <span className="block">
-                <StaggeredText text={t("title_1")} />
-              </span>
-              <span className="mt-2 block text-brand-primary lg:ml-28">
-                <StaggeredText text={t("title_2")} />
-              </span>
-            </h2>
-
-            <p className="max-w-5xl text-xl leading-tight tracking-tight md:text-3xl lg:text-[2.2rem]">
-              {t("description")}
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titlePrimary={t("title_1")}
+            titleAccent={t("title_2")}
+            titleAccentClassName="lg:ml-28"
+            description={t("description")}
+          />
         </div>
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-12">
           <article className="xl:col-span-8">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.85fr)]">
-              <div className="overflow-hidden rounded-4xl bg-[#F0F0F0]">
+              <div className="overflow-hidden rounded-none bg-[#F0F0F0]">
                 <div className="relative h-88 w-full md:h-120">
                   <Image
                     src="/images/AVATAR.png"
@@ -84,8 +70,8 @@ export async function Manifesto(): Promise<React.JSX.Element> {
               </div>
 
               <div className="flex flex-col gap-6">
-                <div className="rounded-4xl bg-[#161616] p-7 text-[#F0F0F0] md:p-8">
-                  <span className="inline-flex rounded-full bg-white/8 px-4 py-2 text-[10px] font-black uppercase tracking-[0.35em] text-[#F0F0F0]/60">
+                <div className="rounded-none bg-[#161616] p-7 text-[#F0F0F0] md:p-8">
+                  <span className="inline-flex rounded-sm bg-white/8 px-4 py-2 text-[10px] font-black uppercase tracking-[0.35em] text-[#F0F0F0]/60">
                     {t("badge")}
                   </span>
 
@@ -98,7 +84,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
                   </p>
                 </div>
 
-                <div className="overflow-hidden rounded-4xl bg-[#F0F0F0]">
+                <div className="overflow-hidden rounded-none bg-[#F0F0F0]">
                   {principles.map((item, index) => (
                     <div
                       key={item}
@@ -123,7 +109,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
           <aside className="xl:col-span-4">
             <div className="flex h-full flex-col justify-between gap-6  bg-foreground px-8 py-8 text-background dark:border-white/10 dark:bg-white dark:text-black">
               <div className="space-y-8">
-                <span className="inline-flex rounded-full  px-4 py-2 text-[10px] font-black uppercase tracking-[0.4em] text-white/68 dark:border-black/12 dark:text-black/62">
+                <span className="inline-flex rounded-sm  px-4 py-2 text-[10px] font-black uppercase tracking-[0.4em] text-white/68 dark:border-black/12 dark:text-black/62">
                   {t("panel_eyebrow")}
                 </span>
 
@@ -141,7 +127,7 @@ export async function Manifesto(): Promise<React.JSX.Element> {
                 {pillars.map((item) => (
                   <div
                     key={item}
-                    className="rounded-[1.4rem] border border-white/14 bg-white/7 px-5 py-5 dark:border-black/10 dark:bg-black/4"
+                    className="rounded-sm border border-white/14 bg-white/7 px-5 py-5 dark:border-black/10 dark:bg-black/4"
                   >
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-[11px] font-black uppercase tracking-[0.35em] text-white/74 dark:text-black/70">
@@ -153,9 +139,9 @@ export async function Manifesto(): Promise<React.JSX.Element> {
                 ))}
               </div>
 
-              <div className="rounded-[1.75rem] border border-white/12 bg-black/14 p-6 dark:border-black/10 dark:bg-black/6">
+              <div className="rounded-none border border-white/12 bg-black/14 p-6 dark:border-black/10 dark:bg-black/6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/14 bg-white/7 dark:border-black/10 dark:bg-black/4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm border border-white/14 bg-white/7 dark:border-black/10 dark:bg-black/4">
                     <SquaresFourIcon size={20} weight="bold" />
                   </div>
                   <div className="space-y-2">

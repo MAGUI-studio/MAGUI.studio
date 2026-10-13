@@ -52,7 +52,7 @@ export function AccordionItem({
 
         <div
           className={cn(
-            "h-10 w-10 lg:h-12 lg:w-12 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-700 shrink-0 mt-1",
+            "h-10 w-10 lg:h-12 lg:w-12 rounded-sm border border-foreground/10 flex items-center justify-center transition-all duration-700 shrink-0 mt-1",
             isOpen
               ? "rotate-45 bg-brand-primary border-brand-primary text-white scale-110 shadow-lg shadow-brand-primary/20"
               : "text-foreground/20 group-hover:border-foreground/30 group-hover:text-foreground/60"

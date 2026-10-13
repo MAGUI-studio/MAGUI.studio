@@ -13,7 +13,7 @@ import {
 } from "@phosphor-icons/react"
 import { useForm } from "react-hook-form"
 
-import { Button } from "@/src/components/ui/button"
+import { CtaButton } from "@/src/components/ui/ctaButton"
 
 import { trackEvent } from "@/src/lib/analytics"
 import { cn } from "@/src/lib/utils/utils"
@@ -446,14 +446,15 @@ export function ProjectInquiryForm({
           ) : null}
 
           <div className="flex flex-col gap-4 border-t border-border/40 pt-6 sm:flex-row sm:items-center sm:justify-end">
-            <Button
+            <CtaButton
               type="submit"
               size="lg"
+              variant="primary"
               disabled={isSubmitting}
-              className="h-12 min-w-52 rounded-none bg-foreground px-6 text-[11px] font-black uppercase tracking-[0.35em] text-background hover:bg-brand-primary"
+              className="h-12 min-w-52"
             >
               {isSubmitting ? t("submitting") : t("submit")}
-            </Button>
+            </CtaButton>
           </div>
         </div>
       </section>

@@ -4,21 +4,16 @@ import { Metadata } from "next"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import dynamic from "next/dynamic"
 
-import { FAQItem } from "@/src/types/sections"
-
 import { SectionDivider } from "@/src/components/ui/sectionDivider"
 import { ServiceMarquee } from "@/src/components/ui/serviceMarquee"
 
 import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
-import { Contact } from "@/src/components/sections/contact"
-import { FAQ } from "@/src/components/sections/faq"
 import { Hero } from "@/src/components/sections/hero"
 import { MaguiConnect } from "@/src/components/sections/maguiConnect"
 import { PortfolioShowcase } from "@/src/components/sections/portfolioShowcase"
 import { Services } from "@/src/components/sections/services"
-import { Statistics } from "@/src/components/sections/statistics"
 import { Value } from "@/src/components/sections/value"
 
 import { siteConfig } from "@/src/config/site"
@@ -80,28 +75,9 @@ export default async function Page({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations("Index.Marquee")
-  const faqT = await getTranslations("Index.FAQ")
-  const faqItems = faqT.raw("items") as FAQItem[]
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${siteConfig.url}/#faq`,
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-      name: item.question,
-    })),
-  }
 
   return (
     <div className="relative min-h-svh w-full bg-background font-sans text-foreground selection:bg-brand-primary/30 selection:text-brand-primary overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
       <ScrollSpy />
       <Header />
       <main>
@@ -112,19 +88,13 @@ export default async function Page({
         <Value />
         <Services />
 
-        <PortfolioShowcase />
-        <SectionDivider />
-        <MaguiConnect />
-        <SectionDivider />
-        <Statistics />
-
-        <div className="md:pt-44">
+        <div className="overflow-hidden py-4 md:py-8">
           <CurvedLoop marqueeText={t("text")} speed={1.5} curveAmount={150} />
         </div>
 
-        <FAQ />
+        <PortfolioShowcase />
         <SectionDivider />
-        <Contact />
+        <MaguiConnect />
       </main>
       <Footer />
     </div>

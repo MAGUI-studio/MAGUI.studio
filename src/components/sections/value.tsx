@@ -6,6 +6,7 @@ import { Discipline } from "@/src/types/sections"
 
 import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 export async function Value(): Promise<React.JSX.Element> {
@@ -21,32 +22,18 @@ export async function Value(): Promise<React.JSX.Element> {
       withContainer={true}
     >
       <div className="space-y-16 md:space-y-20 lg:space-y-28">
-        <div className="flex flex-col gap-10 md:gap-12 2xl:flex-row lg:gap-20">
-          <div className="space-y-7 md:space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-brand-primary" />
-              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
-                {t("eyebrow")}
-              </span>
-            </div>
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titlePrimary={t("title_1")}
+            titleAccent={t("title_2")}
+          />
 
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
-              <span className="block">
-                <StaggeredText text={t("title_1")} />
-              </span>
-              <span className="mt-2 block text-brand-primary md:mt-3">
-                <StaggeredText text={t("title_2")} />
-              </span>
-            </h2>
-          </div>
-
-          <div className="2xl:max-w-3xl 2xl:self-end">
+          <div className="lg:max-w-xl xl:max-w-2xl lg:pb-3">
             <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="relative overflow-hidden">
-                <p className="text-lg font-medium leading-snug tracking-tight text-muted-foreground md:text-xl lg:text-3xl">
-                  {t("description")}
-                </p>
-              </div>
+              <p className="text-lg font-medium leading-relaxed tracking-tight text-muted-foreground sm:text-xl lg:text-2xl xl:text-3xl">
+                {t("description")}
+              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -54,25 +41,37 @@ export async function Value(): Promise<React.JSX.Element> {
         <ScrollReveal variant="fadeUp" delay={0.3}>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
             {disciplines.map((discipline) => (
-              <article key={discipline.id} className="group space-y-6">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">
-                    {discipline.label}
-                  </span>
-                  <span className="font-heading text-4xl font-black leading-none text-foreground/20 group-hover:text-brand-primary/40 transition-colors duration-500">
-                    {discipline.id}
-                  </span>
+              <article
+                key={discipline.id}
+                className="relative isolate flex flex-col justify-between space-y-8 pt-4"
+              >
+                <span
+                  className="pointer-events-none absolute -top-8 right-0 select-none font-heading text-8xl font-black leading-none tracking-tighter text-foreground/[0.06] sm:text-9xl md:text-[130px] lg:-top-12 lg:text-[160px] xl:text-[180px]"
+                  aria-hidden="true"
+                >
+                  {discipline.id}
+                </span>
+
+                <div className="relative z-10 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-px w-6 bg-brand-primary" />
+                    <span className="text-[11px] font-black uppercase tracking-[0.45em] text-brand-primary">
+                      {discipline.label}
+                    </span>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="font-heading text-3xl font-black uppercase leading-[1.1] tracking-[-0.04em] text-foreground sm:text-4xl lg:text-5xl">
+                      <StaggeredText text={discipline.title} />
+                    </h3>
+
+                    <div className="h-[2px] w-12 bg-foreground/15" />
+                  </div>
+
+                  <p className="text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
+                    {discipline.description}
+                  </p>
                 </div>
-
-                <h3 className="font-heading text-2xl font-black uppercase leading-tight tracking-tight text-foreground md:text-3xl">
-                  {discipline.title}
-                </h3>
-
-                <div className="h-[2px] w-12 bg-foreground/10 group-hover:w-full group-hover:bg-brand-primary transition-all duration-500 my-3" />
-
-                <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
-                  {discipline.description}
-                </p>
               </article>
             ))}
           </div>

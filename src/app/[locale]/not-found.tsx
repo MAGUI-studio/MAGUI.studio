@@ -1,9 +1,7 @@
 import * as React from "react"
 
 import { useTranslations } from "next-intl"
-import Link from "next/link"
-
-import { Button } from "@/src/components/ui/button"
+import { CtaButton } from "@/src/components/ui/ctaButton"
 
 export default function NotFound(): React.JSX.Element {
   const t = useTranslations("Errors.not_found")
@@ -14,9 +12,9 @@ export default function NotFound(): React.JSX.Element {
         {t("title")}
       </h1>
       <p className="mt-4 text-muted-foreground">{t("description")}</p>
-      <Link href="/" className="mt-8">
-        <Button className="rounded-full">{t("button")}</Button>
-      </Link>
+      <CtaButton href="/" variant="primary" size="md" className="mt-8">
+        {t("button")}
+      </CtaButton>
     </div>
   )
 }

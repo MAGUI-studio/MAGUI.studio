@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 
 import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 
 const ProjectInquiryForm = dynamic(() =>
   import("@/src/components/common/projectInquiryForm").then(
@@ -27,29 +27,13 @@ export async function Contact(): Promise<React.JSX.Element> {
       withContainer={true}
     >
       <div className="space-y-14 lg:space-y-18">
-        <header className="space-y-8">
-          <div className="flex items-center gap-4">
-            <div className="h-px w-12 bg-brand-primary" />
-            <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
-              {t("eyebrow")}
-            </span>
-          </div>
-
-          <div className="space-y-6">
-            <h2 className="max-w-5xl font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
-              <span className="block">
-                <StaggeredText text={contactTitlePrimary} />
-              </span>
-              <span className="mt-3 block text-brand-primary">
-                <StaggeredText text={contactTitleAccent} />
-              </span>
-            </h2>
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
-                {t("description")}
-              </p>
-            </ScrollReveal>
-          </div>
+        <header>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titlePrimary={contactTitlePrimary}
+            titleAccent={contactTitleAccent}
+            description={t("description")}
+          />
         </header>
         <ScrollReveal variant="scaleUp" delay={0.2}>
           <React.Suspense fallback={null}>

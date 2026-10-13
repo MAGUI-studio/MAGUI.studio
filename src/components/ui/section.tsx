@@ -26,7 +26,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         id={id}
         ref={ref}
         className={cn(
-          "relative w-full overflow-hidden bg-background",
+          "relative w-full overflow-hidden",
           className
         )}
         {...props}

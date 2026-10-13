@@ -19,7 +19,7 @@ const MARQUEE_KEYS = [
   "interface_design",
   "sales_pages",
   "visual_strategy",
-  "frontend_engineering",
+  "blogs",
 ] as const
 
 export function ServiceMarquee({
@@ -31,10 +31,13 @@ export function ServiceMarquee({
 
   return (
     <section
-      className={cn("relative overflow-hidden py-14 md:py-20", className)}
+      className={cn(
+        "relative overflow-hidden pt-0 pb-4 md:pb-6 lg:pb-8",
+        className
+      )}
       aria-hidden="true"
     >
-      <div className="w-[110%] -left-[5%] relative -rotate-2 bg-brand-primary py-4 md:py-6 shadow-2xl flex items-center justify-center">
+      <div className="relative w-full bg-brand-primary py-2.5 md:py-3.5 flex items-center justify-center">
         <MarqueeRow items={items} direction="normal" />
       </div>
     </section>
@@ -56,14 +59,14 @@ function MarqueeRow({ items, direction }: MarqueeRowProps): React.JSX.Element {
         <div
           key={i}
           className={cn(
-            "flex shrink-0 items-center whitespace-nowrap font-heading text-3xl font-black uppercase leading-none tracking-[-0.03em] text-white md:text-5xl lg:text-6xl xl:text-7xl",
+            "flex shrink-0 items-center whitespace-nowrap font-heading text-lg font-black uppercase leading-none tracking-[-0.03em] text-white sm:text-xl md:text-2xl lg:text-3xl",
             animationClass
           )}
         >
           {items.map((item, index) => (
             <React.Fragment key={`${item}-${index}`}>
-              <span className="px-6 md:px-8 select-none">{item}</span>
-              <span className="text-white/40 text-xl md:text-3xl select-none">
+              <span className="px-5 sm:px-6 md:px-8 select-none">{item}</span>
+              <span className="text-white/45 text-sm sm:text-base md:text-lg select-none">
                 ✦
               </span>
             </React.Fragment>

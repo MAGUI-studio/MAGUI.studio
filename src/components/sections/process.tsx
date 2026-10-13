@@ -6,13 +6,13 @@ import Image from "next/image"
 import { ProcessStep } from "@/src/types/sections"
 
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import {
   BracketsCurlyIcon,
   CompassRoseIcon,
   PaintBrushIcon,
   RocketLaunchIcon,
 } from "@/src/components/ui/serverIcons"
-import { StaggeredText } from "@/src/components/ui/staggeredText"
 
 const PROCESS_IMAGES = [
   "/images/strategy.webp",
@@ -41,30 +41,19 @@ export async function Process(): Promise<React.JSX.Element> {
       withContainer={true}
     >
       <div className="mb-14 flex flex-col gap-10 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
-        <div className="space-y-8">
-          <div className="flex items-center gap-4">
-            <div className="h-px w-12 bg-brand-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
-              {t("eyebrow")}
-            </span>
-          </div>
-
-          <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
-            <span className="block">
-              <StaggeredText text={t("title_1")} />
-            </span>
-            <span className="mt-2 block text-brand-primary lg:ml-24">
-              <StaggeredText text={t("title_2")} />
-            </span>
-          </h2>
-        </div>
+        <SectionHeader
+          eyebrow={t("eyebrow")}
+          titlePrimary={t("title_1")}
+          titleAccent={t("title_2")}
+          titleAccentClassName="lg:ml-24"
+        />
 
         <p className="max-w-3xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl">
           {t("description")}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-4xl border border-foreground/8 bg-foreground/8 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-none border border-foreground/8 bg-foreground/8 xl:grid-cols-2">
         {steps.map((step, index) => (
           <ProcessCard
             key={step.title}
@@ -115,7 +104,7 @@ function ProcessCard({
             </h3>
           </div>
 
-          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-border/60 bg-foreground text-background transition-transform duration-500 group-hover:scale-110 dark:bg-white dark:text-black">
+          <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-border/60 bg-foreground text-background transition-transform duration-500 group-hover:scale-110 dark:bg-white dark:text-black">
             <Icon size={26} weight="bold" />
           </div>
         </div>
@@ -139,7 +128,7 @@ function ProcessCard({
             <div className="absolute inset-0 bg-black/45" />
           </div>
 
-          <div className="absolute left-5 top-5 flex items-center gap-3 rounded-full border border-white/15 bg-black/30 px-4 py-2 text-white backdrop-blur-sm">
+          <div className="absolute left-5 top-5 flex items-center gap-3 rounded-sm border border-white/15 bg-black/30 px-4 py-2 text-white backdrop-blur-sm">
             <Icon size={16} weight="fill" />
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">
               {step.title}

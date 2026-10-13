@@ -1,69 +1,33 @@
 import * as React from "react"
 
-import { getTranslations } from "next-intl/server"
+import { getMessages, getTranslations } from "next-intl/server"
 import Image from "next/image"
-import Link from "next/link"
 
+import { CtaButton } from "@/src/components/ui/ctaButton"
 import { ScrollReveal } from "@/src/components/ui/scrollReveal"
 import { Section } from "@/src/components/ui/section"
+import { SectionHeader } from "@/src/components/ui/sectionHeader"
 import { ArrowUpRightIcon } from "@/src/components/ui/serverIcons"
 import { StaggeredText } from "@/src/components/ui/staggeredText"
 
-import { cn } from "@/src/lib/utils/utils"
-
 import { siteConfig } from "@/src/config/site"
 
-interface ServiceShowcaseItem {
-  id: string
-  inquiryValue: "institutional" | "landing" | "sales"
-  title: string
-  label: string
-  description: string
-  image: string
-  overlayClassName: string
-}
-
 const serviceImages = [
-  "/images/landing.webp",
-  "/images/sales.webp",
-  "/images/institutional.webp",
+  "/utils/banners/landing-pages.webp",
+  "/utils/banners/pagina-de-vendas.webp",
+  "/utils/banners/site-institucional.webp",
+  "/utils/banners/blogs.webp",
 ] as const
 
 export async function Services(): Promise<React.JSX.Element> {
   const t = await getTranslations("Index.Services")
   const idT = await getTranslations("Index.Ids")
+  const messages = await getMessages()
 
-  const services: ServiceShowcaseItem[] = [
-    {
-      id: "01",
-      inquiryValue: "landing",
-      title: t("landing.title"),
-      label: t("landing.label"),
-      description: t("landing.description"),
-      image: serviceImages[0],
-      overlayClassName:
-        "from-brand-primary/94 via-brand-primary/84 to-brand-primary/68",
-    },
-    {
-      id: "02",
-      inquiryValue: "sales",
-      title: t("sales.title"),
-      label: t("sales.label"),
-      description: t("sales.description"),
-      image: serviceImages[1],
-      overlayClassName: "from-black/92 via-zinc-900/84 to-zinc-800/70",
-    },
-    {
-      id: "03",
-      inquiryValue: "institutional",
-      title: t("institutional.title"),
-      label: t("institutional.label"),
-      description: t("institutional.description"),
-      image: serviceImages[2],
-      overlayClassName:
-        "from-brand-secondary/94 via-brand-secondary/84 to-brand-secondary/70",
-    },
-  ]
+  const landingTags = messages.Index.Services.landing.tags as string[]
+  const salesTags = messages.Index.Services.sales.tags as string[]
+  const institutionalTags = messages.Index.Services.institutional.tags as string[]
+  const blogTags = messages.Index.Services.blog.tags as string[]
 
   return (
     <Section
@@ -73,121 +37,280 @@ export async function Services(): Promise<React.JSX.Element> {
     >
       <div className="space-y-16 lg:space-y-24">
         <div className="flex flex-col gap-12 lg:gap-16">
-          <div className="space-y-10">
-            <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-brand-primary" />
-              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-primary">
-                {t("eyebrow")}
-              </span>
-            </div>
-
-            <h2 className="font-heading text-5xl font-black uppercase leading-[1.15] tracking-[-0.06em] text-foreground md:text-8xl 2xl:text-[136px]">
-              <span className="block">
-                <StaggeredText text={t("title_1")} />
-              </span>
-              <span className="mt-3 block text-brand-primary">
-                <StaggeredText text={t("title_2")} />
-              </span>
-            </h2>
-          </div>
-
-          <ScrollReveal variant="fadeUp" delay={0.1}>
-            <p className="max-w-4xl text-xl font-medium leading-tight tracking-tight text-muted-foreground md:text-3xl lg:text-4xl">
-              {t("description")}
-            </p>
-          </ScrollReveal>
+          <SectionHeader
+            eyebrow={t("eyebrow")}
+            titlePrimary={t("title_1")}
+            titleAccent={t("title_2")}
+            description={t("description")}
+            inline={true}
+          />
         </div>
 
         <ScrollReveal variant="scaleUp" delay={0.2}>
-          <div className="grid grid-cols-1 gap-px border border-foreground/8 bg-foreground/8 2xl:grid-cols-3">
-            {services.map((service) => (
-              <article
-                key={service.id}
-                className="group relative isolate min-h-120 overflow-hidden bg-background lg:min-h-152"
-              >
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  quality={60}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div
-                  className={cn(
-                    "absolute inset-0 bg-linear-to-br opacity-95 transition-opacity duration-700 group-hover:opacity-88",
-                    service.overlayClassName
-                  )}
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
+            <article className="group relative isolate flex min-h-[500px] flex-col justify-between overflow-hidden rounded-none border border-white/10 bg-background p-8 text-white sm:p-10 lg:col-span-8 lg:min-h-[540px] lg:p-12">
+              <Image
+                src={serviceImages[0]}
+                alt={t("landing.title")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                quality={75}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-black/94 via-zinc-900/86 to-zinc-800/70 opacity-95 transition-opacity duration-700 group-hover:opacity-88" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-25" />
 
-                <div className="relative flex h-full flex-col justify-between p-8 text-white md:p-10 lg:p-12">
-                  <div className="flex items-start justify-between gap-6">
-                    <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
-                      {service.id}
-                    </span>
-                    <div className="flex items-center gap-3">
-                      <div className="h-px w-8 bg-white/30" />
-                      <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
-                        {service.label}
-                      </span>
-                    </div>
-                  </div>
+              <div className="relative z-10 flex items-start justify-between gap-6">
+                <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
+                  01
+                </span>
 
-                  <div className="space-y-8">
-                    <h3 className="max-w-[11ch] font-heading text-3xl font-black uppercase leading-[1.15] tracking-[-0.06em] md:text-4xl">
-                      <StaggeredText text={service.title} />
-                    </h3>
-
-                    <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/78 md:text-xl">
-                      {service.description}
-                    </p>
-
-                    <Link
-                      href={`/?service=${service.inquiryValue}#${idT("contact")}`}
-                      prefetch={false}
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-white/8 text-white transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-white/35 group-hover:bg-white/14"
-                      aria-label={`${t("selection")} ${service.title}`}
-                    >
-                      <ArrowUpRightIcon size={20} weight="bold" />
-                    </Link>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-white/40" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/90">
+                    {t("landing.label")}
+                  </span>
                 </div>
-              </article>
-            ))}
+              </div>
+
+              <div className="relative z-10 space-y-6 pt-12">
+                <div className="space-y-4">
+                  <h3 className="font-heading text-4xl font-black uppercase leading-[1.05] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
+                    <StaggeredText text={t("landing.title")} />
+                  </h3>
+
+                  <p className="max-w-2xl text-base font-medium leading-relaxed text-white/90 sm:text-lg">
+                    {t("landing.description")}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {landingTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/20 bg-white/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div>
+                  <CtaButton
+                    href={siteConfig.contact.path}
+                    variant="dark-outline"
+                    size="sm"
+                    className="h-11 px-5 border-white/20 bg-white/8 text-white hover:border-white/40"
+                    sliderClassName="bg-white/20"
+                  >
+                    <span>{t("cta")}</span>
+                    <ArrowUpRightIcon
+                      size={16}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                    />
+                  </CtaButton>
+                </div>
+              </div>
+            </article>
+
+            <article className="group relative isolate flex min-h-[460px] flex-col justify-between overflow-hidden rounded-none border border-white/10 bg-background p-8 text-white sm:p-10 lg:col-span-4 lg:min-h-[540px]">
+              <Image
+                src={serviceImages[1]}
+                alt={t("sales.title")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                quality={60}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-black/94 via-zinc-900/86 to-zinc-800/70 opacity-95 transition-opacity duration-700 group-hover:opacity-88" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
+
+              <div className="relative z-10 flex items-start justify-between gap-6">
+                <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
+                  02
+                </span>
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-white/30" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
+                    {t("sales.label")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative z-10 space-y-6 pt-8">
+                <div className="space-y-3">
+                  <h3 className="font-heading text-3xl font-black uppercase leading-[1.1] tracking-[-0.05em] sm:text-4xl">
+                    <StaggeredText text={t("sales.title")} />
+                  </h3>
+
+                  <p className="text-sm font-medium leading-relaxed text-white/80 sm:text-base">
+                    {t("sales.description")}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {salesTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/85 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div>
+                  <CtaButton
+                    href={siteConfig.contact.path}
+                    variant="dark-outline"
+                    size="sm"
+                    className="h-11 px-5 border-white/20 bg-white/8 text-white hover:border-white/40"
+                    sliderClassName="bg-white/20"
+                  >
+                    <span>{t("cta")}</span>
+                    <ArrowUpRightIcon
+                      size={16}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                    />
+                  </CtaButton>
+                </div>
+              </div>
+            </article>
+
+            <article className="group relative isolate flex min-h-[380px] flex-col justify-between overflow-hidden rounded-none border border-white/10 bg-background p-8 text-white sm:p-10 lg:col-span-6 lg:min-h-[420px]">
+              <Image
+                src={serviceImages[2]}
+                alt={t("institutional.title")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={60}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-black/94 via-zinc-900/86 to-zinc-800/70 opacity-95 transition-opacity duration-700 group-hover:opacity-88" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
+
+              <div className="relative z-10 flex items-start justify-between gap-6">
+                <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
+                  03
+                </span>
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-white/30" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
+                    {t("institutional.label")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative z-10 space-y-6 pt-8">
+                <div className="space-y-3">
+                  <h3 className="font-heading text-3xl font-black uppercase leading-[1.1] tracking-[-0.05em] sm:text-4xl">
+                    <StaggeredText text={t("institutional.title")} />
+                  </h3>
+
+                  <p className="max-w-xl text-sm font-medium leading-relaxed text-white/80 sm:text-base">
+                    {t("institutional.description")}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {institutionalTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/85 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div>
+                  <CtaButton
+                    href={siteConfig.contact.path}
+                    variant="dark-outline"
+                    size="sm"
+                    className="h-11 px-5 border-white/20 bg-white/8 text-white hover:border-white/40"
+                    sliderClassName="bg-white/20"
+                  >
+                    <span>{t("cta")}</span>
+                    <ArrowUpRightIcon
+                      size={16}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                    />
+                  </CtaButton>
+                </div>
+              </div>
+            </article>
+
+            <article className="group relative isolate flex min-h-[380px] flex-col justify-between overflow-hidden rounded-none border border-white/10 bg-background p-8 text-white sm:p-10 lg:col-span-6 lg:min-h-[420px]">
+              <Image
+                src={serviceImages[3]}
+                alt={t("blog.title")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={60}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-black/94 via-zinc-900/86 to-zinc-800/70 opacity-95 transition-opacity duration-700 group-hover:opacity-88" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[3rem_3rem] opacity-20" />
+
+              <div className="relative z-10 flex items-start justify-between gap-6">
+                <span className="font-heading text-5xl font-black leading-none text-white/45 md:text-6xl">
+                  04
+                </span>
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-white/30" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.45em] text-white/85">
+                    {t("blog.label")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative z-10 space-y-6 pt-8">
+                <div className="space-y-3">
+                  <h3 className="font-heading text-3xl font-black uppercase leading-[1.1] tracking-[-0.05em] sm:text-4xl">
+                    <StaggeredText text={t("blog.title")} />
+                  </h3>
+
+                  <p className="max-w-xl text-sm font-medium leading-relaxed text-white/80 sm:text-base">
+                    {t("blog.description")}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {blogTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/85 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div>
+                  <CtaButton
+                    href={siteConfig.contact.path}
+                    variant="dark-outline"
+                    size="sm"
+                    className="h-11 px-5 border-white/20 bg-white/8 text-white hover:border-white/40"
+                    sliderClassName="bg-white/20"
+                  >
+                    <span>{t("cta")}</span>
+                    <ArrowUpRightIcon
+                      size={16}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                    />
+                  </CtaButton>
+                </div>
+              </div>
+            </article>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal variant="fadeUp" delay={0.3}>
-          <aside className="grid gap-8 bg-muted/20 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8 lg:p-10">
-            <div className="max-w-3xl space-y-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.45em] text-brand-primary">
-                {t("portfolio.eyebrow")}
-              </span>
-              <h3 className="font-heading text-3xl font-black uppercase leading-[0.94] tracking-[-0.05em] text-foreground md:text-5xl">
-                {t("portfolio.title")}
-              </h3>
-              <p className="text-base font-medium leading-relaxed text-muted-foreground md:text-lg">
-                {t("portfolio.description")}
-              </p>
-            </div>
-
-            <a
-              href={siteConfig.portfolio.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-primary px-6 text-xs font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-brand-primary/12 transition-all duration-300 hover:scale-[1.02] hover:bg-brand-primary/92 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-            >
-              {t("portfolio.cta")}
-              <ArrowUpRightIcon
-                size={18}
-                weight="bold"
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                aria-hidden="true"
-              />
-            </a>
-          </aside>
-        </ScrollReveal>
       </div>
     </Section>
   )
