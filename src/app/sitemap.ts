@@ -7,7 +7,7 @@ import { siteConfig } from "@/src/config/site"
 
 interface LocalizedRouteDefinition {
   changeFrequency: "weekly" | "monthly"
-  href: "/" | "/contato" | "/metodo" | "/estudio"
+  href: "/" | "/contato"
   priority: number
 }
 
@@ -31,16 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       href: "/contato",
       priority: 0.8,
-    },
-    {
-      changeFrequency: "monthly",
-      href: "/metodo",
-      priority: 0.7,
-    },
-    {
-      changeFrequency: "monthly",
-      href: "/estudio",
-      priority: 0.7,
     },
   ]
 

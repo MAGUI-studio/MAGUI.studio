@@ -8,14 +8,6 @@ export const pathnames = {
     pt: "/contato",
     en: "/contact",
   },
-  "/metodo": {
-    pt: "/metodo",
-    en: "/method",
-  },
-  "/estudio": {
-    pt: "/estudio",
-    en: "/studio",
-  },
 } as const
 
 export const routing = defineRouting({
