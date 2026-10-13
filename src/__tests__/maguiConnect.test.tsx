@@ -9,8 +9,9 @@ describe("MaguiConnect", () => {
   it("renders the MAGUI Connect section content", async () => {
     render(await MaguiConnect())
 
-    expect(screen.getByText("eyebrow")).toBeInTheDocument()
-    expect(screen.getByText("features.0")).toBeInTheDocument()
-    expect(screen.getByText("price")).toBeInTheDocument()
+    expect(screen.getByText("Quero meu Connect")).toBeInTheDocument()
+    expect(screen.getByText("Quero meu Forever")).toBeInTheDocument()
+    expect(screen.getByText("R$ 497")).toBeInTheDocument()
+    expect(screen.getByText("R$ 997")).toBeInTheDocument()
   })
 })

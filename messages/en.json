@@ -13,7 +13,7 @@
       "statistics": "statistics"
     },
     "Marquee": {
-      "text": "STRATEGY * ENGINEERING * DESIGN * PERFORMANCE * AUTHORITY *"
+      "text": "STRATEGY * DESIGN * PERFORMANCE * AUTHORITY * EXPERIENCE *"
     },
     "ServiceMarquee": {
       "landing_pages": "LANDING PAGES",
@@ -21,7 +21,7 @@
       "interface_design": "INTERFACE DESIGN",
       "sales_pages": "SALES PAGES",
       "visual_strategy": "VISUAL STRATEGY",
-      "frontend_engineering": "FRONT-END ENGINEERING"
+      "blogs": "BLOGS"
     },
     "Statistics": {
       "eyebrow": "Rigor Metrics",
@@ -33,9 +33,9 @@
       "stat_2_val": "100",
       "stat_2_label": "Bespoke Focus",
       "stat_2_desc": "Projects designed from absolute scratch, zero templates.",
-      "stat_3_val": "90",
-      "stat_3_label": "Core Web Vitals",
-      "stat_3_desc": "Focus on ultra-fast loading speeds and optimized performance.",
+      "stat_3_val": "100",
+      "stat_3_label": "Editorial Design",
+      "stat_3_desc": "Bespoke art direction with refined aesthetic standards.",
       "stat_4_val": "2026",
       "stat_4_label": "Foundation Year",
       "stat_4_desc": "Studio established with modern infrastructure."
@@ -62,6 +62,7 @@
     },
     "Hero": {
       "eyebrow": "Visual Strategy Studio",
+      "system_tag": "DIGITAL SYSTEMS & DESIGN STUDIO",
       "title_1": "Elite",
       "title_2": "Design &",
       "title_3": "Authority",
@@ -71,7 +72,10 @@
       "scroll": "Discover",
       "image_alt": "Abstraction of Precision and Power",
       "studio_info": "MAGUI.studio / Global Presence",
-      "studio_tagline": "Est. 2026 / Rigor & Excellence"
+      "studio_tagline": "Est. 2026 / Rigor & Excellence",
+      "stat_prefix_1": "01 // EXPERIENCE",
+      "stat_prefix_2": "02 // BESPOKE",
+      "stat_prefix_3": "03 // FOUNDATION"
     },
     "About": {
       "title": "The MAGUI Concept",
@@ -177,7 +181,7 @@
         "badge": "Selected Project",
         "client": "Pirâmide Imóveis • Parque Una SJC",
         "title": "Pirâmide Imóveis • Parque Una SJC",
-        "subtitle": "Developed exclusively for Pirâmide Imóveis, the Parque Una São José dos Campos landing page is a digital experience created to present the city's first open, master-planned neighborhood. More than a launch site, the platform operates as a complete ecosystem for positioning and acquiring qualified clients for the RIZA Residential and MARTIM Commercial towers. Combining refined visual aesthetics, institutional mini-documentaries, and native support for three languages (Portuguese, English, and Spanish), the page immerses visitors in the atmosphere of New Urbanism and delivers a seamless journey, connecting domestic and international buyers directly with the brokerage team in real time.",
+        "subtitle": "Developed exclusively for Pirâmide Imóveis, the Parque Una SJC platform introduces the city's first master-planned neighborhood. More than a launch site, it operates as a positioning and acquisition ecosystem for the RIZA and MARTIM towers, combining refined art direction, mini-documentaries, and real-time broker connection.",
         "image_alt": "Digital platform Pirâmide Imóveis Parque Una SJC",
         "challenge_label": "Context",
         "challenge_text": "Translating the scale and urban planning of Parque Una into a seamless interface built for the RIZA and MARTIM launches.",
@@ -204,8 +208,43 @@
         "tags": [
           "Urbanism",
           "Master Plan",
-          "Digital Interface",
-          "Multilingual Platform"
+          "Digital Interface"
+        ],
+        "visit_project": "View project",
+        "cta": "Start a project"
+      },
+      "featured_case_blog": {
+        "badge": "Selected Project",
+        "client": "Pirâmide Imóveis • Editorial Blog",
+        "title": "Pirâmide Imóveis • Editorial Blog",
+        "subtitle": "High-authority editorial portal for the Vale do Paraíba real estate market. Built with headless architecture and integrated CMS for high-performance indexing, market insights, and continuous organic positioning.",
+        "image_alt": "Editorial blog Pirâmide Imóveis",
+        "challenge_label": "Context",
+        "challenge_text": "Building a scalable editorial channel to consolidate Pirâmide Imóveis market leadership through specialized content and SEO.",
+        "experience_label": "Digital Solution",
+        "experience_intro": "A fluid, responsive, and performance-optimized content platform:",
+        "pillars": [
+          {
+            "title": "Headless Architecture",
+            "description": "Instant load speeds with Next.js and Sanity CMS."
+          },
+          {
+            "title": "SEO Strategy",
+            "description": "Semantic markup engineered for high search engine indexing."
+          },
+          {
+            "title": "Editorial Experience",
+            "description": "Refined typography, immersive reading flow, and category navigation."
+          },
+          {
+            "title": "Lead Conversion",
+            "description": "Strategic touchpoints guiding readers directly to properties for sale."
+          }
+        ],
+        "tags": [
+          "Content & SEO",
+          "Real Estate Portal",
+          "Integrated CMS"
         ],
         "visit_project": "View project",
         "cta": "Start a project"
@@ -256,6 +295,7 @@
       "title_1": "Available",
       "title_2": "Services",
       "selection": "Selection",
+      "cta": "Request Project",
       "portfolio": {
         "eyebrow": "Selected projects",
         "title": "Projects that show the work in practice.",
@@ -263,19 +303,43 @@
         "cta": "Open portfolio"
       },
       "landing": {
+        "badge": "Most Requested",
         "title": "Landing Pages",
         "label": "Conscious Conversion",
-        "description": "Pages focused on guiding the visitor with persuasive design and optimized loading."
+        "description": "High-impact conversion pages crafted with editorial art direction and decision psychology to guide visitors and turn traffic into qualified leads.",
+        "tags": [
+          "High Conversion",
+          "Exclusive Design",
+          "Strategic Copy"
+        ],
+        "cta": "Request Landing Page"
       },
       "sales": {
         "title": "Sales Pages",
         "label": "Authority & Sales",
-        "description": "Sales systems designed to convey trust and support digital revenue."
+        "description": "Sales systems designed to convey trust and support digital revenue.",
+        "tags": [
+          "High Ticket",
+          "Decision Triggers"
+        ]
       },
       "institutional": {
         "title": "Institutional Sites",
         "label": "Brand Presence",
-        "description": "Digital presence that seeks to project the strength and differentiators of companies in the market."
+        "description": "Digital presence that seeks to project the strength and differentiators of companies in the market.",
+        "tags": [
+          "Solid Identity",
+          "Multi-page"
+        ]
+      },
+      "blog": {
+        "title": "Blogs",
+        "label": "Content & SEO",
+        "description": "Content portals engineered for industry authority, organic indexing, and continuous client acquisition.",
+        "tags": [
+          "Headless CMS",
+          "Organic Traffic"
+        ]
       }
     },
     "FAQ": {
@@ -400,24 +464,54 @@
     },
     "MaguiConnect": {
       "eyebrow": "Product Line",
-      "title_1": "MAGUI",
-      "title_2": "Connect",
-      "description": "A professional links page created to bring together bio, contact, portfolio, social channels, and essential materials in one place with more clarity, direction, and conversion potential.",
-      "features": [
-        "Centralize your digital presence",
-        "Highlight the links that matter most",
-        "Reduce noise and distraction in the journey",
-        "Make the next step easier for every visitor"
-      ],
-      "offer_eyebrow": "Commercial Positioning",
-      "offer": "MAGUI Connect can be included as a bonus for clients who close a project with MAGUI or hired separately as a standalone product.",
-      "cta": "I want my Connect",
-      "image_alt": "MAGUI Connect visual placeholder",
-      "card_eyebrow": "Digital Presence Hub",
-      "card_title": "Everything that matters about your brand in one place.",
-      "card_label": "Standalone offer",
-      "card_description": "A more beautiful, objective, and professional structure designed to turn attention into clicks, contact, and opportunity.",
-      "price": "R$ 497"
+      "tab_connect": "Connect",
+      "tab_forever": "Forever",
+      "connect": {
+        "tags": [
+          "Bio & Links",
+          "Digital Hub",
+          "High Conversion"
+        ],
+        "description": "A definitive digital hub engineered to unite your bio, portfolio, services, and key channels in a high-converting layout. Eliminate friction across the customer journey and turn profile visitors into qualified business opportunities effortlessly.",
+        "features": [
+          "Centralize your bio, vital links, and channels in one single place.",
+          "Highlight services and core products with crystal-clear conversion.",
+          "Eliminate friction to guide profile visitors to their next contact.",
+          "Fast, fluid, and impeccable mobile experience on every single device."
+        ],
+        "offer_eyebrow": "Commercial Positioning",
+        "offer": "Connect can be included as a client benefit for full MAGUI projects or purchased independently as a dedicated and high-converting digital hub.",
+        "cta": "Get my Connect",
+        "image_alt": "Connect product showcase",
+        "card_eyebrow": "Digital Presence Hub",
+        "card_title": "Everything that matters for your brand in one place.",
+        "card_label": "Standalone purchase",
+        "card_description": "A refined, focused, and professional structure designed to convert attention into clicks, contact, and opportunities.",
+        "price": "R$ 497"
+      },
+      "forever": {
+        "tags": [
+          "Wedding Website",
+          "Smart RSVP",
+          "Direct PIX"
+        ],
+        "description": "A digital wedding platform crafted with contemporary editorial art direction, interactive schedules, and smart RSVP tracking. Receive wedding gifts via direct instant transfers with zero platform commission fees and complete peace of mind.",
+        "features": [
+          "Online RSVP tracking with real-time private guest list management.",
+          "Direct cash registry via instant transfer with zero commission cuts.",
+          "Contemporary editorial visual direction for mobile and desktop screens.",
+          "Dedicated couple portal to manage confirmations, notes, and registry."
+        ],
+        "offer_eyebrow": "Commercial Positioning",
+        "offer": "Forever is crafted by MAGUI for couples seeking contemporary editorial art direction, full RSVP ease, and direct gift registry with zero platform fees.",
+        "cta": "Get my Forever",
+        "image_alt": "Forever product showcase",
+        "card_eyebrow": "Digital Wedding Platform",
+        "card_title": "The setting for your wedding in an unforgettable digital experience.",
+        "card_label": "Complete experience",
+        "card_description": "Editorial design, event timeline, interactive venue map, guest RSVP, and direct gift contributions.",
+        "price": "R$ 997"
+      }
     }
   },
   "ContactPage": {

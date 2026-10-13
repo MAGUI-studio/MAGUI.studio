@@ -47,11 +47,9 @@ export const siteConfig = {
   portfolio: {
     url: "https://portfolio.magui.studio" as const,
   },
-  method: {
-    path: "/metodo" as const,
-  },
-  studio: {
-    path: "/estudio" as const,
+  products: {
+    connect: "https://connect.magui.studio/" as const,
+    forever: "https://forever.magui.studio/" as const,
   },
   locales: ["pt", "en"],
   defaultLocale: "pt",
