@@ -61,21 +61,16 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
       <ScrollReveal variant="fadeUp" delay={0.2}>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
           <article className="group flex flex-col space-y-6">
-            <Link
-              href={siteConfig.products.connect}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative block aspect-16/10 w-full overflow-hidden bg-muted/20"
-            >
+            <div className="relative block aspect-16/10 w-full overflow-hidden bg-muted/20">
               <Image
                 src="/utils/products/connect/product_showcase.png"
                 alt={t("connect.image_alt")}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+              <div className="absolute inset-0 bg-black/0" />
 
               <div className="absolute left-4 top-4 flex items-center gap-2 rounded-xs border border-border/60 bg-background px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-foreground shadow-xs">
                 <span className="text-[10px] font-semibold text-muted-foreground">
@@ -86,14 +81,7 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
                   {t("connect.price")}
                 </span>
               </div>
-
-              <div
-                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-sm bg-background/80 text-foreground backdrop-blur-md opacity-0 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
-                aria-label={t("connect.cta")}
-              >
-                <ArrowUpRightIcon size={18} weight="bold" />
-              </div>
-            </Link>
+            </div>
 
             <div className="flex flex-1 flex-col justify-between space-y-6">
               <div className="space-y-4">
@@ -162,21 +150,23 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
                   <p>{t("connect.offer")}</p>
                 </div>
 
-                <CtaButton
-                  href={siteConfig.products.connect}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="sm"
-                  className="h-11 px-6 text-xs font-bold uppercase tracking-wider"
-                >
-                  <span>{t("connect.cta")}</span>
-                  <ArrowUpRightIcon
-                    size={15}
-                    weight="bold"
-                    className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
-                  />
-                </CtaButton>
+                <div className="flex h-11 items-center gap-3.5">
+                  <CtaButton
+                    disabled={true}
+                    variant="primary"
+                    size="sm"
+                    className="h-11 px-6 text-xs font-bold uppercase tracking-wider"
+                  >
+                    <span>{t("connect.cta")}</span>
+                    <ArrowUpRightIcon
+                      size={15}
+                      weight="bold"
+                    />
+                  </CtaButton>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {t("connect.coming_soon")}
+                  </span>
+                </div>
               </div>
             </div>
           </article>
@@ -282,21 +272,23 @@ export async function MaguiConnect(): Promise<React.JSX.Element> {
                   <p>{t("forever.offer")}</p>
                 </div>
 
-                <CtaButton
-                  href={siteConfig.products.forever}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="sm"
-                  className="h-11 px-6 text-xs font-bold uppercase tracking-wider"
-                >
-                  <span>{t("forever.cta")}</span>
-                  <ArrowUpRightIcon
-                    size={15}
-                    weight="bold"
-                    className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
-                  />
-                </CtaButton>
+                <div className="flex h-11 items-center">
+                  <CtaButton
+                    href={siteConfig.products.forever}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                    size="sm"
+                    className="h-11 px-6 text-xs font-bold uppercase tracking-wider"
+                  >
+                    <span>{t("forever.cta")}</span>
+                    <ArrowUpRightIcon
+                      size={15}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                    />
+                  </CtaButton>
+                </div>
               </div>
             </div>
           </article>

@@ -10,6 +10,8 @@ describe("MaguiConnect", () => {
     render(await MaguiConnect())
 
     expect(screen.getByText("Quero meu Connect")).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /Quero meu Connect/i })).toBeDisabled()
+    expect(screen.getByText("Em breve")).toBeInTheDocument()
     expect(screen.getByText("Quero meu Forever")).toBeInTheDocument()
     expect(screen.getByText("R$ 497")).toBeInTheDocument()
     expect(screen.getByText("R$ 997")).toBeInTheDocument()

@@ -143,6 +143,7 @@ const translationData: Record<string, Record<string, unknown>> = {
       image_alt: "Showcase visual do produto Connect",
       card_label: "Contratação avulsa",
       price: "R$ 497",
+      coming_soon: "Em breve",
     },
     forever: {
       tags: ["Site de Casamento", "RSVP Inteligente", "PIX Direto"],
