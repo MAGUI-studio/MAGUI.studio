@@ -9,11 +9,11 @@
       "process": "process",
       "faq": "inquiries",
       "contact": "contact",
-      "connect": "magui-connect",
+      "products": "products",
       "statistics": "statistics"
     },
     "Marquee": {
-      "text": "STRATEGY * DESIGN * PERFORMANCE * AUTHORITY * EXPERIENCE *"
+      "text": "STRATEGY ✦ DESIGN ✦ PERFORMANCE ✦ AUTHORITY ✦ EXPERIENCE ✦"
     },
     "ServiceMarquee": {
       "landing_pages": "LANDING PAGES",
@@ -107,12 +107,7 @@
       "panel_eyebrow": "The Studio",
       "panel_title": "Visual rigor.",
       "panel_description": "We believe a good interface is born from proportion, contrast, and visual decisions made with technical criteria.",
-      "pillars": [
-        "Clarity",
-        "Aesthetics",
-        "Authority",
-        "Rigor"
-      ],
+      "pillars": ["Clarity", "Aesthetics", "Authority", "Rigor"],
       "sidebar_description": "Our focus is on balance: resolved typography, confident compositions, and attention to what the user really perceives.",
       "focus": "Visual appeal and technical clarity.",
       "focus_label": "MAGUI Standard"
@@ -205,11 +200,7 @@
             "description": "Direct access to digital brochures, broker communication, and real-time alerts."
           }
         ],
-        "tags": [
-          "Urbanism",
-          "Master Plan",
-          "Digital Interface"
-        ],
+        "tags": ["Urbanism", "Master Plan", "Digital Interface"],
         "visit_project": "View project",
         "cta": "Start a project"
       },
@@ -241,11 +232,7 @@
             "description": "Strategic touchpoints guiding readers directly to properties for sale."
           }
         ],
-        "tags": [
-          "Content & SEO",
-          "Real Estate Portal",
-          "Integrated CMS"
-        ],
+        "tags": ["Content & SEO", "Real Estate Portal", "Integrated CMS"],
         "visit_project": "View project",
         "cta": "Start a project"
       },
@@ -307,39 +294,26 @@
         "title": "Landing Pages",
         "label": "Conscious Conversion",
         "description": "High-impact conversion pages crafted with editorial art direction and decision psychology to guide visitors and turn traffic into qualified leads.",
-        "tags": [
-          "High Conversion",
-          "Exclusive Design",
-          "Strategic Copy"
-        ],
+        "tags": ["High Conversion", "Exclusive Design", "Strategic Copy"],
         "cta": "Request Landing Page"
       },
       "sales": {
         "title": "Sales Pages",
         "label": "Authority & Sales",
         "description": "Sales systems designed to convey trust and support digital revenue.",
-        "tags": [
-          "High Ticket",
-          "Decision Triggers"
-        ]
+        "tags": ["High Ticket", "Decision Triggers"]
       },
       "institutional": {
         "title": "Institutional Sites",
         "label": "Brand Presence",
         "description": "Digital presence that seeks to project the strength and differentiators of companies in the market.",
-        "tags": [
-          "Solid Identity",
-          "Multi-page"
-        ]
+        "tags": ["Solid Identity", "Multi-page"]
       },
       "blog": {
         "title": "Blogs",
         "label": "Content & SEO",
         "description": "Content portals engineered for industry authority, organic indexing, and continuous client acquisition.",
-        "tags": [
-          "Headless CMS",
-          "Organic Traffic"
-        ]
+        "tags": ["Headless CMS", "Organic Traffic"]
       }
     },
     "FAQ": {
@@ -462,40 +436,35 @@
       "requiredNotePrefix": "Fields marked with",
       "requiredNoteSuffix": "are required."
     },
-    "MaguiConnect": {
+    "Products": {
       "eyebrow": "Product Line",
-      "tab_connect": "Connect",
+      "tab_flow": "Flow",
       "tab_forever": "Forever",
-      "connect": {
+      "flow": {
         "tags": [
-          "Bio & Links",
-          "Digital Hub",
-          "High Conversion"
+          "Online Scheduling",
+          "Public Showcase",
+          "Real-time Management"
         ],
-        "description": "A definitive digital hub engineered to unite your bio, portfolio, services, and key channels in a high-converting layout. Eliminate friction across the customer journey and turn profile visitors into qualified business opportunities effortlessly.",
+        "description": "A smart scheduling and management platform engineered for microbusinesses and independent professionals. Provide a seamless booking experience in just a few steps, easily manage availability, and scale your business presence.",
         "features": [
-          "Centralize your bio, vital links, and channels in one single place.",
-          "Highlight services and core products with crystal-clear conversion.",
-          "Eliminate friction to guide profile visitors to their next contact.",
-          "Fast, fluid, and impeccable mobile experience on every single device."
+          "Frictionless four-step online booking flow for clients on any device.",
+          "Exclusive, customizable public showcase aligned with your brand identity.",
+          "Complete administrative dashboard to manage team, schedules, and services.",
+          "Multi-professional and multi-location support with operational autonomy."
         ],
         "offer_eyebrow": "Commercial Positioning",
-        "offer": "Connect can be included as a client benefit for full MAGUI projects or purchased independently as a dedicated and high-converting digital hub.",
-        "cta": "Get my Connect",
-        "image_alt": "Connect product showcase",
-        "card_eyebrow": "Digital Presence Hub",
-        "card_title": "Everything that matters for your brand in one place.",
-        "card_label": "Standalone purchase",
-        "card_description": "A refined, focused, and professional structure designed to convert attention into clicks, contact, and opportunities.",
-        "price": "R$ 497",
-        "coming_soon": "Coming soon"
+        "offer": "Flow is MAGUI's scheduling platform offering accessible plans, a 7-day free trial, and tailored architecture for beauty, health, and service businesses.",
+        "cta": "Get my Flow",
+        "image_alt": "Flow product showcase",
+        "card_eyebrow": "Online Scheduling Platform",
+        "card_title": "Smart management and scheduling for your business.",
+        "card_label": "Plans starting at",
+        "card_description": "Seamless online scheduling, personalized showcase, and total control over team and schedules.",
+        "price": "R$ 49.90/mo"
       },
       "forever": {
-        "tags": [
-          "Wedding Website",
-          "Smart RSVP",
-          "Direct PIX"
-        ],
+        "tags": ["Wedding Website", "Smart RSVP", "Direct PIX"],
         "description": "A digital wedding platform crafted with contemporary editorial art direction, interactive schedules, and smart RSVP tracking. Receive wedding gifts via direct instant transfers with zero platform commission fees and complete peace of mind.",
         "features": [
           "Online RSVP tracking with real-time private guest list management.",
@@ -569,11 +538,7 @@
         "label": "Evolutionary support",
         "image": "/images/landing.webp",
         "description": "Project launch, access delivery, and the start of support to ensure the solution performs as expected in the real world and continues to evolve.",
-        "details": [
-          "Production deploy",
-          "Initial monitoring",
-          "Support cycle"
-        ]
+        "details": ["Production deploy", "Initial monitoring", "Support cycle"]
       }
     ],
     "qa_title": "Technical Care",

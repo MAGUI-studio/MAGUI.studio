@@ -84,9 +84,9 @@ export function CaretDownIcon(props: ServerIconProps): React.JSX.Element {
 export function CompassRoseIcon(props: ServerIconProps): React.JSX.Element {
   return (
     <BaseIcon {...props}>
-      <circle cx="12" cy="12" r="7" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
       <path
-        d="M10 14L11.5 8.5L17 7L14 12.5L8.5 14L10 14Z"
+        d="M10.5 13.5L11.5 9.5L15.5 8.5L13.5 12.5L10.5 13.5Z"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinejoin="round"
@@ -272,7 +272,14 @@ export function GiftIcon(props: ServerIconProps): React.JSX.Element {
         strokeWidth="1.5"
       />
       <path
-        d="M12 8v13M5 12v9h14v-9M7.5 8C6.12 8 5 6.88 5 5.5A2.5 2.5 0 017.5 3c1.5 0 3 2.5 4.5 5 1.5-2.5 3-5 4.5-5a2.5 2.5 0 012.5 2.5c0 1.38-1.12 2.5-2.5 2.5"
+        d="M12 8v13M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.5 8C6.12 8 5 6.88 5 5.5A2.5 2.5 0 017.5 3c1.5 0 3 2.5 4.5 5 1.5-2.5 3-5 4.5-5a2.5 2.5 0 012.5 2.5c0 1.38-1.12 2.5-2.5 2.5"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

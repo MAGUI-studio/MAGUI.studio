@@ -9,7 +9,7 @@
       "process": "processo",
       "faq": "duvidas",
       "contact": "contato",
-      "connect": "magui-connect",
+      "products": "produtos",
       "statistics": "estatisticas"
     },
     "Marquee": {
@@ -107,12 +107,7 @@
       "panel_eyebrow": "O Estúdio",
       "panel_title": "Rigor visual.",
       "panel_description": "Acreditamos que uma boa interface nasce da proporção, do contraste e de decisões visuais feitas com critério técnico.",
-      "pillars": [
-        "Clareza",
-        "Estética",
-        "Autoridade",
-        "Rigor"
-      ],
+      "pillars": ["Clareza", "Estética", "Autoridade", "Rigor"],
       "sidebar_description": "Nosso foco está no equilíbrio: tipografia resolvida, composições seguras e atenção ao que o usuário realmente percebe.",
       "focus": "Atratividade visual e clareza técnica.",
       "focus_label": "Padrão MAGUI"
@@ -205,11 +200,7 @@
             "description": "Acesso aos books técnicos, atendimento direto com corretores e notificações em tempo real."
           }
         ],
-        "tags": [
-          "Urbanismo",
-          "Bairro Planejado",
-          "Interface Digital"
-        ],
+        "tags": ["Urbanismo", "Bairro Planejado", "Interface Digital"],
         "visit_project": "Ver projeto",
         "cta": "Iniciar um projeto"
       },
@@ -241,11 +232,7 @@
             "description": "Pontos de contato estratégicos para direcionar leitores aos imóveis à venda."
           }
         ],
-        "tags": [
-          "Conteúdo & SEO",
-          "Portal Imobiliário",
-          "CMS Integrado"
-        ],
+        "tags": ["Conteúdo & SEO", "Portal Imobiliário", "CMS Integrado"],
         "visit_project": "Ver projeto",
         "cta": "Iniciar um projeto"
       },
@@ -307,39 +294,26 @@
         "title": "Landing Pages",
         "label": "Conversão Consciente",
         "description": "Páginas de alta conversão estruturadas com direção de arte editorial e psicologia de decisão para guiar o visitante e transformar tráfego em clientes qualificados.",
-        "tags": [
-          "Alta Conversão",
-          "Design Exclusivo",
-          "Copy Estratégica"
-        ],
+        "tags": ["Alta Conversão", "Design Exclusivo", "Copy Estratégica"],
         "cta": "Solicitar Landing Page"
       },
       "sales": {
         "title": "Páginas de Vendas",
         "label": "Autoridade & Venda",
         "description": "Sistemas de vendas desenhados para transmitir confiança e apoiar o faturamento digital.",
-        "tags": [
-          "Ticket Alto",
-          "Gatilhos de Decisão"
-        ]
+        "tags": ["Ticket Alto", "Gatilhos de Decisão"]
       },
       "institutional": {
         "title": "Sites Institucionais",
         "label": "Presença de Marca",
         "description": "Presença digital que busca projetar a solidez e os diferenciais de empresas no mercado.",
-        "tags": [
-          "Identidade Sólida",
-          "Multi-páginas"
-        ]
+        "tags": ["Identidade Sólida", "Multi-páginas"]
       },
       "blog": {
         "title": "Blogs",
         "label": "Conteúdo & SEO",
         "description": "Portais de conteúdo estruturados para autoridade no setor, indexação orgânica e atração de clientes.",
-        "tags": [
-          "Headless CMS",
-          "Tráfego Orgânico"
-        ]
+        "tags": ["Headless CMS", "Tráfego Orgânico"]
       }
     },
     "FAQ": {
@@ -462,40 +436,35 @@
       "requiredNotePrefix": "Campos com",
       "requiredNoteSuffix": "são obrigatórios."
     },
-    "MaguiConnect": {
+    "Products": {
       "eyebrow": "Linha de Produtos",
-      "tab_connect": "Connect",
+      "tab_flow": "Flow",
       "tab_forever": "Forever",
-      "connect": {
+      "flow": {
         "tags": [
-          "Bio & Links",
-          "Central Digital",
-          "Alta Conversão"
+          "Agendamento Online",
+          "Vitrine Pública",
+          "Gestão em Tempo Real"
         ],
-        "description": "Uma central digital definitiva desenvolvida para reunir bio, portfólio, serviços e canais de contato em uma estrutura de alta conversão. Elimine ruídos na jornada do seu público e transforme visitantes em oportunidades reais de negócio com fluidez.",
+        "description": "Plataforma inteligente de agendamento online e gestão desenvolvida para microempresas e profissionais autônomos. Proporcione uma experiência de reserva impecável em poucos passos, gerencie horários com facilidade e impulsione a visibilidade do seu negócio.",
         "features": [
-          "Centralize sua bio, links vitais e canais comerciais em um único lugar.",
-          "Destaque serviços e produtos com direcionamento claro para conversão.",
-          "Elimine ruídos na navegação e conduza o visitante ao próximo contato.",
-          "Estrutura rápida, fluida e impecável em celulares de qualquer tamanho."
+          "Agendamento online ágil em quatro etapas para o cliente final sem ruídos.",
+          "Vitrine pública exclusiva e personalizável com a identidade do estabelecimento.",
+          "Painel de controle completo para gestão de equipe, horários e serviços.",
+          "Suporte a múltiplos profissionais e unidades com autonomia operacional."
         ],
         "offer_eyebrow": "Posicionamento Comercial",
-        "offer": "O Connect pode ser incluído como benefício para clientes que fecham projetos na MAGUI ou contratado de forma avulsa como uma central digital independente.",
-        "cta": "Quero meu Connect",
-        "image_alt": "Showcase visual do produto Connect",
-        "card_eyebrow": "Central de Presença Digital",
-        "card_title": "Tudo o que importa da sua marca em um só lugar.",
-        "card_label": "Contratação avulsa",
-        "card_description": "Uma estrutura mais bonita, objetiva e profissional para transformar atenção em clique, contato e oportunidade.",
-        "price": "R$ 497",
-        "coming_soon": "Em breve"
+        "offer": "O Flow é a plataforma de agendamento da MAGUI com planos acessíveis, teste gratuito de 7 dias e estrutura sob medida para negócios de beleza, saúde e serviços.",
+        "cta": "Quero meu Flow",
+        "image_alt": "Showcase visual do produto Flow",
+        "card_eyebrow": "Plataforma de Agendamento",
+        "card_title": "Gestão e agendamentos inteligentes para seu negócio.",
+        "card_label": "Planos a partir de",
+        "card_description": "Agendamento online descomplicado, vitrine personalizada e controle total de equipe e horários.",
+        "price": "R$ 49,90/mês"
       },
       "forever": {
-        "tags": [
-          "Site de Casamento",
-          "RSVP Inteligente",
-          "PIX Direto"
-        ],
+        "tags": ["Site de Casamento", "RSVP Inteligente", "PIX Direto"],
         "description": "Plataforma digital de casamento desenhada com direção de arte editorial contemporânea, cronograma interativo e confirmação de presença inteligente. Receba presentes via PIX direto em sua conta bancária com taxa zero e total autonomia para o casal.",
         "features": [
           "Confirmação de presença online com gestão de convidados em tempo real.",

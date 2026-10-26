@@ -11,8 +11,8 @@ import { Footer } from "@/src/components/common/footer"
 import { Header } from "@/src/components/common/header"
 import { ScrollSpy } from "@/src/components/common/scrollSpy"
 import { Hero } from "@/src/components/sections/hero"
-import { MaguiConnect } from "@/src/components/sections/maguiConnect"
 import { PortfolioShowcase } from "@/src/components/sections/portfolioShowcase"
+import { Products } from "@/src/components/sections/products"
 import { Services } from "@/src/components/sections/services"
 import { Value } from "@/src/components/sections/value"
 
@@ -94,7 +94,7 @@ export default async function Page({
 
         <PortfolioShowcase />
         <SectionDivider />
-        <MaguiConnect />
+        <Products />
       </main>
       <Footer />
     </div>

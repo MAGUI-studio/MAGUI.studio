@@ -48,8 +48,8 @@ export const siteConfig = {
     url: "https://portfolio.magui.studio" as const,
   },
   products: {
-    connect: "https://connect.magui.studio/" as const,
     forever: "https://forever.magui.studio/" as const,
+    flow: "https://flow.magui.studio/" as const,
   },
   locales: ["pt", "en"],
   defaultLocale: "pt",

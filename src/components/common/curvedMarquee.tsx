@@ -53,7 +53,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   const textLength = spacing
   const totalText = textLength
-    ? Array(Math.ceil(2400 / textLength) + 2)
+    ? Array(Math.ceil(3600 / textLength) + 4)
         .fill(text)
         .join("")
     : text
@@ -136,7 +136,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
       onPointerLeave={endDrag}
     >
       <svg
-        className="select-none w-full overflow-visible block aspect-1440/250 text-[200px] md:text-[8rem] lg:text-[10rem] font-heading font-black uppercase leading-none tracking-tighter"
+        className="select-none w-full overflow-visible block aspect-1440/250 text-[80px] sm:text-[95px] md:text-[110px] lg:text-[120px] font-heading font-black uppercase leading-none tracking-wide"
         viewBox="0 0 1440 250"
       >
         <text
@@ -158,7 +158,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
         {ready && (
           <text
             xmlSpace="preserve"
-            className="fill-foreground/20 dark:fill-white/8"
+            className="fill-foreground opacity-20 dark:fill-white dark:opacity-[0.08]"
           >
             <textPath
               ref={textPathRef}
